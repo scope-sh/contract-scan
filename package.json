@@ -1,7 +1,7 @@
 {
-  "name": "starter-app",
+  "name": "contract-scan",
   "version": "1.0.0",
-  "description": "Starter Vue app",
+  "description": "Cross-chain smart contract search",
   "author": {
     "name": "Timur Badretdinov",
     "url": "https://github.com/Destiner"
@@ -13,7 +13,7 @@
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Destiner/starter-app.git"
+    "url": "git://github.com/scope-sh/contract-scan.git"
   },
   "type": "module",
   "scripts": {
