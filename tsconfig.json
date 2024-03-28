@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    /* Base */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ES2022",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": false,
+    /* No transpiling */
+    "moduleResolution": "Bundler",
+    "module": "preserve",
+    "noEmit": true,
+    /* Browser-specific */
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    /* Imports */
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    }
+  }
+}
