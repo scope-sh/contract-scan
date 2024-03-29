@@ -2,10 +2,15 @@
   <div class="page">
     <div class="content">
       <div class="header">
-        <div class="subtitle">Contract</div>
-        <div class="title">
-          <h1>{{ address }}</h1>
-          <ButtonCopy :value="address" />
+        <router-link to="/">
+          <div class="link">← Go Back</div>
+        </router-link>
+        <div class="header-details">
+          <div class="subtitle">Contract</div>
+          <div class="title">
+            <h1>{{ address }}</h1>
+            <ButtonCopy :value="address" />
+          </div>
         </div>
       </div>
       <div class="details">
@@ -133,6 +138,27 @@ const chains: Chain[] = [
 }
 
 .header {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+
+.link {
+  opacity: 0.6;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-tiny);
+  cursor: pointer;
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+.header-details {
   display: flex;
   gap: 8px;
   flex-direction: column;
