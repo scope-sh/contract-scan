@@ -126,7 +126,7 @@ const examples: Contract[] = [
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  min-height: 100%;
 }
 
 .content {
@@ -137,7 +137,7 @@ const examples: Contract[] = [
   width: 972px;
   max-width: 100%;
   height: 100%;
-  padding: 154px 0 70px;
+  padding-top: 154px;
 }
 
 .top {

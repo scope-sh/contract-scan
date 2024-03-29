@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <router-view />
+    <footer />
   </div>
 </template>
 
@@ -48,6 +49,16 @@ body {
   background: var(--color-background-primary);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
+}
+
+footer {
+  min-height: 32px;
+}
+
+@media (width >= 768px) {
+  footer {
+    min-height: 64px;
+  }
 }
 
 /* Reset */
