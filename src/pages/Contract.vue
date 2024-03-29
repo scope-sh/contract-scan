@@ -126,16 +126,24 @@ function getInitialChainStatus(): {
   align-items: center;
   justify-content: center;
   min-height: 100%;
+  margin: 0 16px;
 }
 
 .content {
   display: flex;
-  gap: 150px;
+  gap: 60px;
   flex-direction: column;
   width: 840px;
   max-width: 100%;
   height: 100%;
-  padding-top: 96px;
+  padding-top: 24px;
+}
+
+@media (width >= 768px) {
+  .content {
+    gap: 150px;
+    padding-top: 96px;
+  }
 }
 
 .header {
@@ -179,8 +187,14 @@ a {
 h1 {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: var(--font-size-big);
+  font-size: var(--font-size-medium);
   font-weight: normal;
+}
+
+@media (width >= 768px) {
+  h1 {
+    font-size: var(--font-size-big);
+  }
 }
 
 .details {

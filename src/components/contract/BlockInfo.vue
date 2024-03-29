@@ -14,10 +14,17 @@ import BlockStatus from './BlockStatus.vue';
 <style scoped>
 .block {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 8px;
   padding: 12px 9px;
   border: 1px solid var(--color-border-primary);
   border-radius: var(--border-radius-medium);
   background: var(--color-background-secondary);
+}
+
+@media (width >= 768px) {
+  .block {
+    gap: 20px;
+  }
 }
 </style>

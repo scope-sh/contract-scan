@@ -127,23 +127,37 @@ const examples: Contract[] = [
   align-items: center;
   justify-content: center;
   min-height: 100%;
+  margin: 0 16px;
 }
 
 .content {
   display: flex;
-  gap: 120px;
+  gap: 100px;
   flex-direction: column;
   justify-content: space-between;
   width: 972px;
   max-width: 100%;
   height: 100%;
-  padding-top: 154px;
+  padding-top: 40px;
+}
+
+@media (width >= 768px) {
+  .content {
+    gap: 120px;
+    padding-top: 154px;
+  }
 }
 
 .top {
   display: flex;
-  gap: 70px;
+  gap: 40px;
   flex-direction: column;
+}
+
+@media (width >= 768px) {
+  .top {
+    gap: 70px;
+  }
 }
 
 .header {
@@ -227,6 +241,7 @@ h2 {
 }
 
 .example-list {
+  --item-per-row: 1;
   --gap: 12px;
 
   display: flex;
@@ -235,8 +250,16 @@ h2 {
   width: 100%;
 }
 
+@media (width >= 768px) {
+  .example-list {
+    --item-per-row: 3;
+  }
+}
+
 .example {
-  width: calc((100% - 2 * var(--gap)) / 3);
+  width: calc(
+    (100% - (var(--item-per-row) - 1) * var(--gap)) / var(--item-per-row)
+  );
   max-width: 100%;
 }
 </style>
