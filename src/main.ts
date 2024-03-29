@@ -1,14 +1,14 @@
 import { createApp } from 'vue';
 import { createWebHistory, createRouter } from 'vue-router';
 
-import Main from '@/pages/Main.vue';
+import Home from '@/pages/Home.vue';
 
 import App from './App.vue';
 
 const routerHistory = createWebHistory();
 const router = createRouter({
   history: routerHistory,
-  routes: [{ path: '/', component: Main }],
+  routes: [{ path: '/', component: Home }],
 });
 
 const app = createApp(App);
