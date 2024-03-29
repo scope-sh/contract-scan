@@ -38,6 +38,21 @@ export type { Status };
 }
 
 .progress {
-  color: #818181;
+  animation: glow 2s infinite;
+  color: #8e8e8e;
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.7;
+  }
 }
 </style>
