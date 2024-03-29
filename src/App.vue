@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <router-view />
   </div>
 </template>
@@ -11,6 +11,22 @@ import '@fontsource-variable/inconsolata';
 
 <style>
 :root {
+  --color-text-primary: #ededed;
+  --color-text-secondary: #a1a1a1;
+  --color-text-tertiary: #7b7b7b;
+  --color-text-placeholder: #4d4d4d;
+  --color-background-primary: #111115;
+  --color-background-secondary: #171717;
+  --color-background-tertiary: #1b1b1b;
+  --color-border-primary: #353535;
+  --color-border-secondary: #4d4d4d;
+  --border-radius-tiny: 2px;
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+  --font-size-tiny: 12px;
+  --font-size-small: 14px;
+  --font-size-medium: 16px;
+  --font-size-big: 20px;
   --font-sans: 'Inter Variable', -apple-system, 'BlinkMacSystemFont',
     avenir next, avenir, segoe ui, helvetica neue, helvetica, 'Ubuntu', roboto,
     noto, arial, sans-serif;
@@ -21,7 +37,15 @@ import '@fontsource-variable/inconsolata';
     'Liberation Mono', 'Lucida Console', monospace;
 }
 
+.app {
+  height: 100vh;
+}
+
 body {
+  height: 100%;
+  margin: 0;
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
   font-family: var(--font-sans);
 }
 
