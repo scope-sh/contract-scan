@@ -9,8 +9,15 @@
           </div>
         </div>
         <div class="address">
-          <input placeholder="Contract address" />
-          <IconArrowRight class="icon" />
+          <input
+            v-model="address"
+            placeholder="Contract address"
+            @keydown.enter="handleAddressInputEnterKeydown"
+          />
+          <IconArrowRight
+            class="icon"
+            @click="handleIconClick"
+          />
         </div>
       </div>
       <div class="examples">
@@ -31,10 +38,37 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
 import IconArrowRight from '@/components/__common/icon/ArrowRight.vue';
 import CardContract, {
   type Contract,
 } from '@/components/home/CardContract.vue';
+
+const router = useRouter();
+
+const address = ref('');
+
+function handleAddressInputEnterKeydown(): void {
+  if (address.value) {
+    openContractPage(address.value);
+  }
+}
+function handleIconClick(): void {
+  if (address.value) {
+    openContractPage(address.value);
+  }
+}
+
+function openContractPage(address: string): void {
+  router.push({
+    name: 'contract',
+    params: {
+      address,
+    },
+  });
+}
 
 const examples: Contract[] = [
   {
@@ -83,6 +117,7 @@ const examples: Contract[] = [
 
 .content {
   display: flex;
+  gap: 120px;
   flex-direction: column;
   justify-content: space-between;
   width: 972px;
@@ -146,6 +181,7 @@ input::placeholder {
   width: 20px;
   height: 20px;
   color: var(--color-border-primary);
+  cursor: pointer;
 }
 
 input:focus ~ .icon {
