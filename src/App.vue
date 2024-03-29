@@ -20,6 +20,7 @@ import '@fontsource-variable/inconsolata';
   --color-background-tertiary: #1b1b1b;
   --color-border-primary: #353535;
   --color-border-secondary: #4d4d4d;
+  --color-error: #ff7375;
   --border-radius-tiny: 2px;
   --border-radius-small: 4px;
   --border-radius-medium: 8px;

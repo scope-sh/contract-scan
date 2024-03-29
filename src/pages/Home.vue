@@ -11,6 +11,7 @@
         <div class="address">
           <input
             v-model="address"
+            :class="{ invalid: !isAddressValid }"
             placeholder="Contract address"
             @keydown.enter="handleAddressInputEnterKeydown"
           />
@@ -38,7 +39,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { isAddress } from 'viem';
+import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
 import IconArrowRight from '@/components/__common/icon/ArrowRight.vue';
@@ -49,13 +51,25 @@ import CardContract, {
 const router = useRouter();
 
 const address = ref('');
+const isAddressValid = ref(true);
+watch(address, () => {
+  isAddressValid.value = true;
+});
 
 function handleAddressInputEnterKeydown(): void {
+  if (!isAddress(address.value)) {
+    isAddressValid.value = false;
+    return;
+  }
   if (address.value) {
     openContractPage(address.value);
   }
 }
 function handleIconClick(): void {
+  if (!isAddress(address.value)) {
+    isAddressValid.value = false;
+    return;
+  }
   if (address.value) {
     openContractPage(address.value);
   }
@@ -155,12 +169,17 @@ h1 {
   align-items: center;
   width: 100%;
   padding: 6px 12px;
+  transition: all 0.25s ease-in-out;
   border: 1px solid var(--color-border-primary);
   border-radius: var(--border-radius-small);
 }
 
 .address:has(input:focus) {
   border-color: var(--color-border-secondary);
+}
+
+.address:has(input.invalid) {
+  border-color: var(--color-error);
 }
 
 input {
@@ -180,12 +199,17 @@ input::placeholder {
 .icon {
   width: 20px;
   height: 20px;
+  transition: all 0.25s ease-in-out;
   color: var(--color-border-primary);
   cursor: pointer;
 }
 
 input:focus ~ .icon {
   color: var(--color-border-secondary);
+}
+
+input.invalid ~ .icon {
+  color: var(--color-error);
 }
 
 .examples {
