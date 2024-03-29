@@ -341,6 +341,14 @@ function getAddressExplorerUrl(chain: Chain, address: Address): string | null {
       return `https://etherscan.io/address/${address}`;
     case SEPOLIA:
       return `https://sepolia.etherscan.io/address/${address}`;
+    case HOLESKY:
+      return `https://holesky.etherscan.io/address/${address}`;
+    case ARBITRUM:
+      return `https://arbiscan.io/address/${address}`;
+    case ARBITRUM_NOVA:
+      return `https://nova.arbiscan.io/address/${address}`;
+    case ARBITRUM_SEPOLIA:
+      return `https://sepolia.arbiscan.io/address/${address}`;
     case OPTIMISM:
       return `https://optimistic.etherscan.io/address/${address}`;
     case OPTIMISM_SEPOLIA:
@@ -349,14 +357,90 @@ function getAddressExplorerUrl(chain: Chain, address: Address): string | null {
       return `https://basescan.org/address/${address}`;
     case BASE_SEPOLIA:
       return `https://sepolia.basescan.org/address/${address}`;
+    case ZORA:
+      return `https://explorer.zora.energy/address/${address}`;
+    case ZORA_SEPOLIA:
+      return `https://sepolia.explorer.zora.energy/address/${address}`;
     case POLYGON:
       return `https://polygonscan.com/address/${address}`;
     case POLYGON_MUMBAI:
       return `https://mumbai.polygonscan.com/address/${address}`;
     case POLYGON_AMOY:
       return `https://www.oklink.com/amoy/address/${address}`;
-    default:
-      return null;
+    case POLYGON_ZKEVM:
+      return `https://zkevm.polygonscan.com/address/${address}`;
+    case POLYGON_ZKEVM_TESTNET:
+      return `https://testnet-zkevm.polygonscan.com/address/${address}`;
+    case AVALANCHE:
+      return `https://avascan.info/blockchain/c/address/${address}`;
+    case AVALANCHE_FUJI:
+      return `https://testnet.snowtrace.io/address/${address}`;
+    case GNOSIS:
+      return `https://gnosisscan.io/address/${address}`;
+    case GNOSIS_CHIADO:
+      return `https://gnosis-chiado.blockscout.com/address/${address}`;
+    case SCROLL:
+      return `https://scrollscan.com/address/${address}`;
+    case SCROLL_SEPOLIA:
+      return `https://sepolia.scrollscan.com/address/${address}`;
+    case ZKSYNC_ERA:
+      return `https://era.zksync.network/address/${address}`;
+    case ZKSYNC_ERA_GOERLI:
+      return `https://goerli.explorer.zksync.io/address/${address}`;
+    case ZKSYNC_ERA_SEPOLIA:
+      return `https://sepolia-era.zksync.network/address/${address}`;
+    case CELO:
+      return `https://celoscan.io/address/${address}`;
+    case CELO_ALFAJORES:
+      return `https://alfajores.celoscan.io/address/${address}`;
+    case LINEA:
+      return `https://lineascan.build/address/${address}`;
+    case LINEA_GOERLI:
+      return `https://goerli.lineascan.build/address/${address}`;
+    case BLAST:
+      return `https://blastscan.io/address/${address}`;
+    case BLAST_SEPOLIA:
+      return `https://sepolia.blastscan.io/address/${address}`;
+    case MANTLE:
+      return `https://explorer.mantle.xyz/address/${address}`;
+    case MANTLE_GOERLI:
+      return `https://explorer.testnet.mantle.xyz/address/${address}`;
+    case MODE:
+      return `https://explorer.mode.network/address/${address}`;
+    case MODE_SEPOLIA:
+      return `https://sepolia.explorer.mode.network/address/${address}`;
+    case BSC:
+      return `https://bscscan.com/address/${address}`;
+    case BSC_TESTNET:
+      return `https://testnet.bscscan.com/address/${address}`;
+    case FANTOM:
+      return `https://ftmscan.com/address/${address}`;
+    case FANTOM_TESTNET:
+      return `https://testnet.ftmscan.com/address/${address}`;
+    case MOONBASE_ALPHA:
+      return `https://moonbase.moonscan.io/address/${address}`;
+    case MOONBEAM:
+      return `https://moonbeam.moonscan.io/address/${address}`;
+    case MOONRIVER:
+      return `https://moonriver.moonscan.io/address/${address}`;
+    case FLARE:
+      return `https://flare-explorer.flare.network/address/${address}`;
+    case IMMUTABLE_ZKEVM:
+      return `https://explorer.immutable.com/address/${address}`;
+    case IMMUTABLE_ZKEVM_TESTNET:
+      return `https://explorer.testnet.immutable.com/address/${address}`;
+    case AURORA:
+      return `https://explorer.aurora.dev/address/${address}`;
+    case AURORA_TESTNET:
+      return `https://explorer.testnet.aurora.dev/address/${address}`;
+    case OP_BNB:
+      return `https://opbnb.bscscan.com/address/${address}`;
+    case OP_BNB_TESTNET:
+      return `https://opbnb-testnet.bscscan.com/address/${address}`;
+    case MANTA_PACIFIC:
+      return `https://pacific-explorer.manta.network/address/${address}`;
+    case MANTA_PACIFIC_SEPOLIA:
+      return `https://pacific-explorer.sepolia-testnet.manta.network/address/${address}`;
   }
 }
 
