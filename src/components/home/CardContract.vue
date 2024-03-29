@@ -1,19 +1,27 @@
 <template>
-  <div class="card">
-    <div class="title">{{ title }}</div>
-    <div class="details">
-      <div class="description">{{ description }}</div>
-      <div class="address">
-        <div class="address-label">
-          {{ address }}
+  <router-link :to>
+    <div class="card">
+      <div class="title">{{ title }}</div>
+      <div class="details">
+        <div class="description">{{ description }}</div>
+        <div class="address">
+          <div class="address-label">
+            {{ address }}
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script setup lang="ts">
-defineProps<Contract>();
+import { computed } from 'vue';
+
+const props = defineProps<Contract>();
+
+const to = computed(() => {
+  return `/contract/${props.address}`;
+});
 </script>
 
 <script lang="ts">
@@ -27,6 +35,11 @@ export type { Contract };
 </script>
 
 <style scoped>
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .card {
   display: flex;
   gap: 12px;
