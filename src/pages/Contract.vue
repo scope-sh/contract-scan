@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { Address, createPublicClient, http } from 'viem';
+import { Address, Hex, createPublicClient, http } from 'viem';
 import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
@@ -77,6 +77,7 @@ watch(
 );
 
 async function fetchCode(): Promise<void> {
+  let referenceBytecode: Hex | null = null;
   // Fetch contract code
   for (const chain of CHAINS) {
     const endpointUrl = getChainEndpointUrl(chain);
@@ -90,7 +91,14 @@ async function fetchCode(): Promise<void> {
     const chainCode = await chainClient.getBytecode({
       address: address.value,
     });
-    const status = chainCode ? 'success' : 'empty';
+    if (!referenceBytecode && chainCode) {
+      referenceBytecode = chainCode;
+    }
+    const status = chainCode
+      ? referenceBytecode === chainCode
+        ? 'success'
+        : 'warning'
+      : 'empty';
     const chainIndex = chains.value.findIndex(
       (chainStatus) => chainStatus.id === chain,
     );
