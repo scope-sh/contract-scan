@@ -52,12 +52,12 @@ const CHAINS: Chain[] = [
   POLYGON_AMOY,
 ];
 
-function getChainName(chain: Chain): string | null {
+function getChainName(chain: Chain): string {
   const chainData = getChainData(chain);
-  return chainData ? chainData.name : null;
+  return chainData.name;
 }
 
-function getChainData(chain: Chain): ChainData | null {
+function getChainData(chain: Chain): ChainData {
   switch (chain) {
     case ETHEREUM:
       return mainnet;
@@ -82,10 +82,9 @@ function getChainData(chain: Chain): ChainData | null {
     case POLYGON_AMOY:
       return polygonAmoy;
   }
-  return null;
 }
 
-function getAddressExplorerUrl(chain: Chain, address: Address): string {
+function getAddressExplorerUrl(chain: Chain, address: Address): string | null {
   switch (chain) {
     case ETHEREUM:
       return `https://etherscan.io/address/${address}`;
