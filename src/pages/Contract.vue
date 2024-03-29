@@ -25,8 +25,8 @@
 </template>
 
 <script setup lang="ts">
-import { Address } from 'viem';
-import { computed } from 'vue';
+import { Address, createPublicClient, http } from 'viem';
+import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 import BlockInfo from '@/components/contract/BlockInfo.vue';
@@ -34,40 +34,63 @@ import { Status } from '@/components/contract/BlockStatus.vue';
 import ButtonCopy from '@/components/contract/ButtonCopy.vue';
 import ChainList from '@/components/contract/ChainList.vue';
 import {
-  ETHEREUM,
-  GOERLI,
-  SEPOLIA,
-  OPTIMISM,
-  OPTIMISM_GOERLI,
-  OPTIMISM_SEPOLIA,
-  BASE,
-  BASE_SEPOLIA,
-  POLYGON,
-  POLYGON_MUMBAI,
-  POLYGON_AMOY,
+  CHAINS,
   Chain,
+  getChainData,
+  getChainEndpointUrl,
 } from '@/utils/chains';
 
 const route = useRoute();
 
 const address = computed(() => route.params.address as Address);
 
-const chains: {
+const chains = ref(getInitialChainStatus());
+
+watch(
+  address,
+  () => {
+    chains.value = getInitialChainStatus();
+    fetchCode();
+  },
+  {
+    immediate: true,
+  },
+);
+
+async function fetchCode(): Promise<void> {
+  // Fetch contract code
+  for (const chain of CHAINS) {
+    const endpointUrl = getChainEndpointUrl(chain);
+    if (!endpointUrl) {
+      continue;
+    }
+    const chainClient = createPublicClient({
+      chain: getChainData(chain),
+      transport: http(endpointUrl),
+    });
+    const chainCode = await chainClient.getBytecode({
+      address: address.value,
+    });
+    const status = chainCode ? 'success' : 'empty';
+    const chainIndex = chains.value.findIndex(
+      (chainStatus) => chainStatus.id === chain,
+    );
+    const chainValue = chains.value[chainIndex];
+    if (chainValue) {
+      chainValue.status = status;
+    }
+  }
+}
+
+function getInitialChainStatus(): {
   id: Chain;
   status: Status;
-}[] = [
-  { id: ETHEREUM, status: 'success' },
-  { id: GOERLI, status: 'success' },
-  { id: SEPOLIA, status: 'success' },
-  { id: OPTIMISM, status: 'warning' },
-  { id: OPTIMISM_GOERLI, status: 'warning' },
-  { id: OPTIMISM_SEPOLIA, status: 'warning' },
-  { id: BASE, status: 'empty' },
-  { id: BASE_SEPOLIA, status: 'empty' },
-  { id: POLYGON, status: 'progress' },
-  { id: POLYGON_MUMBAI, status: 'progress' },
-  { id: POLYGON_AMOY, status: 'progress' },
-];
+}[] {
+  return CHAINS.map((chain) => ({
+    id: chain,
+    status: 'progress',
+  }));
+}
 </script>
 
 <style scoped>
