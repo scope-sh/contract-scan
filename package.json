@@ -28,6 +28,7 @@
   "dependencies": {
     "@fontsource-variable/inconsolata": "^5.0.17",
     "@fontsource-variable/inter": "^5.0.17",
+    "@vueuse/core": "^10.9.0",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0"
   },
