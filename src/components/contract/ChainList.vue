@@ -1,34 +1,24 @@
 <template>
   <div class="list">
-    <div
-      v-for="chain in chains"
+    <ChainItem
+      v-for="chain in props.chains"
       :key="chain.id"
-    >
-      <BlockStatus :status="chain.status">
-        <div class="item-details">
-          {{ getChainName(chain.id) }}
-          <a
-            :href="getAddressExplorerUrl(chain.id, address)"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <IconExternalLink class="icon" />
-          </a>
-        </div>
-      </BlockStatus>
-    </div>
+      :chain="chain.id"
+      :status="chain.status"
+      :address="props.address"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { Address } from 'viem';
 
-import IconExternalLink from '@/components/__common/icon/ExternalLink.vue';
-import { Chain, getChainName, getAddressExplorerUrl } from '@/utils/chains';
+import { Chain } from '@/utils/chains';
 
-import BlockStatus, { Status } from './BlockStatus.vue';
+import { Status } from './BlockStatus.vue';
+import ChainItem from './ChainItem.vue';
 
-defineProps<{
+const props = defineProps<{
   address: Address;
   chains: {
     id: Chain;
@@ -42,21 +32,5 @@ defineProps<{
   display: flex;
   gap: 8px;
   flex-direction: column;
-}
-
-.item-details {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.icon {
-  width: 15px;
-  height: 15px;
 }
 </style>
