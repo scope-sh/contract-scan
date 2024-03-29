@@ -4,16 +4,21 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import '@fontsource-variable/inter';
+import '@fontsource-variable/inconsolata';
+</script>
+
 <style>
 :root {
-  --font-sans: -apple-system, 'BlinkMacSystemFont', avenir next, avenir,
-    segoe ui, helvetica neue, helvetica, 'Ubuntu', roboto, noto, arial,
-    sans-serif;
+  --font-sans: 'Inter Variable', -apple-system, 'BlinkMacSystemFont',
+    avenir next, avenir, segoe ui, helvetica neue, helvetica, 'Ubuntu', roboto,
+    noto, arial, sans-serif;
   --font-serif: 'Iowan Old Style', 'Apple Garamond', 'Baskerville',
     'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro', serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  --font-mono: 'Menlo', 'Consolas', 'Monaco', 'Liberation Mono',
-    'Lucida Console', monospace;
+  --font-mono: 'Inconsolata Variable', 'Menlo', 'Consolas', 'Monaco',
+    'Liberation Mono', 'Lucida Console', monospace;
 }
 
 body {
