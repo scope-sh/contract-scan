@@ -5,7 +5,7 @@
         <div class="header">
           <h1>Contract Scan</h1>
           <div class="subtitle">
-            Search deployed contracts across 50+ EVM chains
+            Search deployed contracts across 100+ EVM chains
           </div>
         </div>
         <div class="address">
