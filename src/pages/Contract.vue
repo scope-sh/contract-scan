@@ -112,7 +112,6 @@ async function fetchCode(): Promise<void> {
     await Promise.all(
       batch.map(async (chain) => {
         const code = await getChainCode(chain);
-        console.log('chain', chain, !!code);
         if (!referenceBytecode && code) {
           referenceBytecode = code;
         }
