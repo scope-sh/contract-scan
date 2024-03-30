@@ -6,6 +6,7 @@
       warning: status === 'warning',
       empty: status === 'empty',
       progress: status === 'progress',
+      error: status === 'error',
     }"
   >
     <slot />
@@ -19,7 +20,7 @@ defineProps<{ status: Status }>();
 </script>
 
 <script lang="ts">
-type Status = 'success' | 'warning' | 'empty' | 'progress';
+type Status = 'success' | 'warning' | 'empty' | 'progress' | 'error';
 
 export type { Status };
 </script>
@@ -40,6 +41,10 @@ export type { Status };
 .progress {
   animation: glow 2s infinite;
   color: #8e8e8e;
+}
+
+.error {
+  color: #c4655a;
 }
 
 @keyframes glow {

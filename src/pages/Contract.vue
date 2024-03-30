@@ -52,10 +52,12 @@ const sortedChains = computed(() => {
         return 0;
       case 'warning':
         return 1;
-      case 'progress':
+      case 'error':
         return 2;
-      case 'empty':
+      case 'progress':
         return 3;
+      case 'empty':
+        return 4;
     }
   }
 
@@ -76,29 +78,40 @@ watch(
   },
 );
 
+async function getCode(chain: Chain): Promise<Hex | null | undefined> {
+  const endpointUrl = getChainEndpointUrl(chain);
+  if (!endpointUrl) {
+    return undefined;
+  }
+  const chainClient = createPublicClient({
+    chain: getChainData(chain),
+    transport: http(endpointUrl),
+  });
+  try {
+    const code = await chainClient.getBytecode({
+      address: address.value,
+    });
+    return code || null;
+  } catch {
+    return undefined;
+  }
+}
+
 async function fetchCode(): Promise<void> {
   let referenceBytecode: Hex | null = null;
   // Fetch contract code
   for (const chain of CHAINS) {
-    const endpointUrl = getChainEndpointUrl(chain);
-    if (!endpointUrl) {
-      continue;
+    const code = await getCode(chain);
+    if (!referenceBytecode && code) {
+      referenceBytecode = code;
     }
-    const chainClient = createPublicClient({
-      chain: getChainData(chain),
-      transport: http(endpointUrl),
-    });
-    const chainCode = await chainClient.getBytecode({
-      address: address.value,
-    });
-    if (!referenceBytecode && chainCode) {
-      referenceBytecode = chainCode;
-    }
-    const status = chainCode
-      ? referenceBytecode === chainCode
+    const status = code
+      ? referenceBytecode === code
         ? 'success'
         : 'warning'
-      : 'empty';
+      : code === null
+        ? 'empty'
+        : 'error';
     const chainIndex = chains.value.findIndex(
       (chainStatus) => chainStatus.id === chain,
     );
