@@ -78,7 +78,7 @@ watch(
   },
 );
 
-async function getCode(chain: Chain): Promise<Hex | null | undefined> {
+async function getChainCode(chain: Chain): Promise<Hex | null | undefined> {
   const endpointUrl = getChainEndpointUrl(chain);
   if (!endpointUrl) {
     return undefined;
@@ -99,26 +99,39 @@ async function getCode(chain: Chain): Promise<Hex | null | undefined> {
 
 async function fetchCode(): Promise<void> {
   let referenceBytecode: Hex | null = null;
-  // Fetch contract code
-  for (const chain of CHAINS) {
-    const code = await getCode(chain);
-    if (!referenceBytecode && code) {
-      referenceBytecode = code;
-    }
-    const status = code
-      ? referenceBytecode === code
-        ? 'success'
-        : 'warning'
-      : code === null
-        ? 'empty'
-        : 'error';
-    const chainIndex = chains.value.findIndex(
-      (chainStatus) => chainStatus.id === chain,
+  // Split chains into batches to query contract code in parallel
+  const batchSize = 10;
+  const batchedChains: Chain[][] = [];
+  for (let i = 0; i < chains.value.length; i += batchSize) {
+    batchedChains.push(
+      chains.value.slice(i, i + batchSize).map((chain) => chain.id),
     );
-    const chainValue = chains.value[chainIndex];
-    if (chainValue) {
-      chainValue.status = status;
-    }
+  }
+  // Fetch contract code
+  for (const batch of batchedChains) {
+    await Promise.all(
+      batch.map(async (chain) => {
+        const code = await getChainCode(chain);
+        console.log('chain', chain, !!code);
+        if (!referenceBytecode && code) {
+          referenceBytecode = code;
+        }
+        const status = code
+          ? referenceBytecode === code
+            ? 'success'
+            : 'warning'
+          : code === null
+            ? 'empty'
+            : 'error';
+        const chainIndex = chains.value.findIndex(
+          (chainStatus) => chainStatus.id === chain,
+        );
+        const chainValue = chains.value[chainIndex];
+        if (chainValue) {
+          chainValue.status = status;
+        }
+      }),
+    );
   }
 }
 
