@@ -17,7 +17,7 @@
         <BlockInfo />
         <ChainList
           :address
-          :chains="sortedChains"
+          :chains
         />
       </div>
     </div>
@@ -45,27 +45,6 @@ const route = useRoute();
 const address = computed(() => route.params.address as Address);
 
 const chains = ref(getInitialChainStatus());
-const sortedChains = computed(() => {
-  function statusToPriority(status: Status): number {
-    switch (status) {
-      case 'success':
-        return 0;
-      case 'warning':
-        return 1;
-      case 'error':
-        return 2;
-      case 'progress':
-        return 3;
-      case 'empty':
-        return 4;
-    }
-  }
-
-  const sortedChains = [...chains.value];
-  return sortedChains.sort((a, b) => {
-    return statusToPriority(a.status) - statusToPriority(b.status);
-  });
-});
 
 watch(
   address,
