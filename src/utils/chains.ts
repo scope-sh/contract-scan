@@ -80,8 +80,6 @@ import {
   zetachainAthensTestnet,
   beam,
   beamTestnet,
-  edgeware,
-  edgewareTestnet,
   hedera,
   hederaTestnet,
   iotex,
@@ -189,8 +187,6 @@ const ZETACHAIN = zetachain.id;
 const ZETACHAIN_ATHENS = zetachainAthensTestnet.id;
 const BEAM = beam.id;
 const BEAM_TESTNET = beamTestnet.id;
-const EDGEWARE = edgeware.id;
-const EDGEWARE_TESTNET = edgewareTestnet.id;
 const HEDERA = hedera.id;
 const HEDERA_TESTNET = hederaTestnet.id;
 const IOTEX = iotex.id;
@@ -298,8 +294,6 @@ type Chain =
   | typeof ZETACHAIN_ATHENS
   | typeof BEAM
   | typeof BEAM_TESTNET
-  | typeof EDGEWARE
-  | typeof EDGEWARE_TESTNET
   | typeof HEDERA
   | typeof HEDERA_TESTNET
   | typeof IOTEX
@@ -407,8 +401,6 @@ const CHAINS: Chain[] = [
   ZETACHAIN_ATHENS,
   BEAM,
   BEAM_TESTNET,
-  EDGEWARE,
-  EDGEWARE_TESTNET,
   HEDERA,
   HEDERA_TESTNET,
   IOTEX,
@@ -608,10 +600,6 @@ function getChainData(chain: Chain): ChainData {
       return beam;
     case BEAM_TESTNET:
       return beamTestnet;
-    case EDGEWARE:
-      return edgeware;
-    case EDGEWARE_TESTNET:
-      return edgewareTestnet;
     case HEDERA:
       return hedera;
     case HEDERA_TESTNET:
@@ -828,8 +816,6 @@ function getAddressExplorerUrl(chain: Chain, address: Address): string | null {
     case BEAM_TESTNET:
       return `https://subnets-test.avax.network/beam/address/${address}`;
     // TODO
-    case EDGEWARE:
-    case EDGEWARE_TESTNET:
     case HEDERA:
     case HEDERA_TESTNET:
     case IOTEX:
