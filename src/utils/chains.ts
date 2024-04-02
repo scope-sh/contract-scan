@@ -24,7 +24,6 @@ import {
   scroll,
   scrollSepolia,
   zkSync,
-  zkSyncTestnet,
   zkSyncSepoliaTestnet,
   celo,
   celoAlfajores,
@@ -131,7 +130,6 @@ const GNOSIS_CHIADO = gnosisChiado.id;
 const SCROLL = scroll.id;
 const SCROLL_SEPOLIA = scrollSepolia.id;
 const ZKSYNC_ERA = zkSync.id;
-const ZKSYNC_ERA_GOERLI = zkSyncTestnet.id;
 const ZKSYNC_ERA_SEPOLIA = zkSyncSepoliaTestnet.id;
 const CELO = celo.id;
 const CELO_ALFAJORES = celoAlfajores.id;
@@ -238,7 +236,6 @@ type Chain =
   | typeof SCROLL
   | typeof SCROLL_SEPOLIA
   | typeof ZKSYNC_ERA
-  | typeof ZKSYNC_ERA_GOERLI
   | typeof ZKSYNC_ERA_SEPOLIA
   | typeof CELO
   | typeof CELO_ALFAJORES
@@ -345,7 +342,6 @@ const CHAINS: Chain[] = [
   SCROLL,
   SCROLL_SEPOLIA,
   ZKSYNC_ERA,
-  ZKSYNC_ERA_GOERLI,
   ZKSYNC_ERA_SEPOLIA,
   CELO,
   CELO_ALFAJORES,
@@ -488,8 +484,6 @@ function getChainData(chain: Chain): ChainData {
       return scrollSepolia;
     case ZKSYNC_ERA:
       return zkSync;
-    case ZKSYNC_ERA_GOERLI:
-      return zkSyncTestnet;
     case ZKSYNC_ERA_SEPOLIA:
       return zkSyncSepoliaTestnet;
     case CELO:
@@ -703,8 +697,6 @@ function getAddressExplorerUrl(chain: Chain, address: Address): string | null {
       return `https://sepolia.scrollscan.com/address/${address}`;
     case ZKSYNC_ERA:
       return `https://era.zksync.network/address/${address}`;
-    case ZKSYNC_ERA_GOERLI:
-      return `https://goerli.explorer.zksync.io/address/${address}`;
     case ZKSYNC_ERA_SEPOLIA:
       return `https://sepolia-era.zksync.network/address/${address}`;
     case CELO:
