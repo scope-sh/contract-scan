@@ -16,7 +16,6 @@ import {
   polygonMumbai,
   polygonAmoy,
   polygonZkEvm,
-  polygonZkEvmTestnet,
   avalanche,
   avalancheFuji,
   gnosis,
@@ -122,7 +121,6 @@ const POLYGON = polygon.id;
 const POLYGON_MUMBAI = polygonMumbai.id;
 const POLYGON_AMOY = polygonAmoy.id;
 const POLYGON_ZKEVM = polygonZkEvm.id;
-const POLYGON_ZKEVM_TESTNET = polygonZkEvmTestnet.id;
 const AVALANCHE = avalanche.id;
 const AVALANCHE_FUJI = avalancheFuji.id;
 const GNOSIS = gnosis.id;
@@ -228,7 +226,6 @@ type Chain =
   | typeof POLYGON_MUMBAI
   | typeof POLYGON_AMOY
   | typeof POLYGON_ZKEVM
-  | typeof POLYGON_ZKEVM_TESTNET
   | typeof AVALANCHE
   | typeof AVALANCHE_FUJI
   | typeof GNOSIS
@@ -334,7 +331,6 @@ const CHAINS: Chain[] = [
   POLYGON_MUMBAI,
   POLYGON_AMOY,
   POLYGON_ZKEVM,
-  POLYGON_ZKEVM_TESTNET,
   AVALANCHE,
   AVALANCHE_FUJI,
   GNOSIS,
@@ -468,8 +464,6 @@ function getChainData(chain: Chain): ChainData {
       return polygonAmoy;
     case POLYGON_ZKEVM:
       return polygonZkEvm;
-    case POLYGON_ZKEVM_TESTNET:
-      return polygonZkEvmTestnet;
     case AVALANCHE:
       return avalanche;
     case AVALANCHE_FUJI:
@@ -681,8 +675,6 @@ function getAddressExplorerUrl(chain: Chain, address: Address): string | null {
       return `https://www.oklink.com/amoy/address/${address}`;
     case POLYGON_ZKEVM:
       return `https://zkevm.polygonscan.com/address/${address}`;
-    case POLYGON_ZKEVM_TESTNET:
-      return `https://testnet-zkevm.polygonscan.com/address/${address}`;
     case AVALANCHE:
       return `https://avascan.info/blockchain/c/address/${address}`;
     case AVALANCHE_FUJI:
