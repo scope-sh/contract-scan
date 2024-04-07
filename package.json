@@ -31,7 +31,7 @@
     "@fontsource-variable/inconsolata": "^5.0.17",
     "@fontsource-variable/inter": "^5.0.17",
     "@vueuse/core": "^10.9.0",
-    "viem": "^2.9.6",
+    "viem": "^2.9.12",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0"
   },
