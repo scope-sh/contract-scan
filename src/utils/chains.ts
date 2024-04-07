@@ -94,7 +94,6 @@ import {
   sapphire,
   sapphireTestnet,
   syscoin,
-  syscoinTestnet,
   taraxa,
   taraxaTestnet,
   wanchain,
@@ -199,7 +198,6 @@ const ROLLUX_TESTNET = rolluxTestnet.id;
 const SAPPHIRE = sapphire.id;
 const SAPPHIRE_TESTNET = sapphireTestnet.id;
 const SYSCOIN = syscoin.id;
-const SYSCOIN_TESTNET = syscoinTestnet.id;
 const TARAXA = taraxa.id;
 const TARAXA_TESTNET = taraxaTestnet.id;
 const WANCHAIN = wanchain.id;
@@ -304,7 +302,6 @@ type Chain =
   | typeof SAPPHIRE
   | typeof SAPPHIRE_TESTNET
   | typeof SYSCOIN
-  | typeof SYSCOIN_TESTNET
   | typeof TARAXA
   | typeof TARAXA_TESTNET
   | typeof WANCHAIN
@@ -409,7 +406,6 @@ const CHAINS: Chain[] = [
   SAPPHIRE,
   SAPPHIRE_TESTNET,
   SYSCOIN,
-  SYSCOIN_TESTNET,
   TARAXA,
   TARAXA_TESTNET,
   WANCHAIN,
@@ -620,8 +616,6 @@ function getChainData(chain: Chain): ChainData {
       return sapphireTestnet;
     case SYSCOIN:
       return syscoin;
-    case SYSCOIN_TESTNET:
-      return syscoinTestnet;
     case TARAXA:
       return taraxa;
     case TARAXA_TESTNET:
@@ -816,7 +810,6 @@ function getAddressExplorerUrl(chain: Chain, address: Address): string | null {
     case SAPPHIRE:
     case SAPPHIRE_TESTNET:
     case SYSCOIN:
-    case SYSCOIN_TESTNET:
     case TARAXA:
     case TARAXA_TESTNET:
     case WANCHAIN:
