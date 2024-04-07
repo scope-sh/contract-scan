@@ -28,7 +28,8 @@ import {
   celo,
   celoAlfajores,
   linea,
-  lineaTestnet,
+  lineaGoerli,
+  lineaSepolia,
   blast,
   blastSepolia,
   mantle,
@@ -132,7 +133,8 @@ const ZKSYNC_ERA_SEPOLIA = zkSyncSepoliaTestnet.id;
 const CELO = celo.id;
 const CELO_ALFAJORES = celoAlfajores.id;
 const LINEA = linea.id;
-const LINEA_GOERLI = lineaTestnet.id;
+const LINEA_GOERLI = lineaGoerli.id;
+const LINEA_SEPOLIA = lineaSepolia.id;
 const BLAST = blast.id;
 const BLAST_SEPOLIA = blastSepolia.id;
 const MANTLE = mantle.id;
@@ -237,6 +239,7 @@ type Chain =
   | typeof CELO_ALFAJORES
   | typeof LINEA
   | typeof LINEA_GOERLI
+  | typeof LINEA_SEPOLIA
   | typeof BLAST
   | typeof BLAST_SEPOLIA
   | typeof MANTLE
@@ -341,6 +344,7 @@ const CHAINS: Chain[] = [
   CELO_ALFAJORES,
   LINEA,
   LINEA_GOERLI,
+  LINEA_SEPOLIA,
   BLAST,
   BLAST_SEPOLIA,
   MANTLE,
@@ -485,7 +489,9 @@ function getChainData(chain: Chain): ChainData {
     case LINEA:
       return linea;
     case LINEA_GOERLI:
-      return lineaTestnet;
+      return lineaGoerli;
+    case LINEA_SEPOLIA:
+      return lineaSepolia;
     case BLAST:
       return blast;
     case BLAST_SEPOLIA:
@@ -695,6 +701,8 @@ function getAddressExplorerUrl(chain: Chain, address: Address): string | null {
       return `https://lineascan.build/address/${address}`;
     case LINEA_GOERLI:
       return `https://goerli.lineascan.build/address/${address}`;
+    case LINEA_SEPOLIA:
+      return `https://sepolia.lineascan.build/address/${address}`;
     case BLAST:
       return `https://blastscan.io/address/${address}`;
     case BLAST_SEPOLIA:
