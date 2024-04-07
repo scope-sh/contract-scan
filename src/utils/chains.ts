@@ -32,7 +32,6 @@ import {
   blast,
   blastSepolia,
   mantle,
-  mantleTestnet,
   mode,
   modeTestnet,
   bsc,
@@ -138,7 +137,6 @@ const LINEA_GOERLI = lineaTestnet.id;
 const BLAST = blast.id;
 const BLAST_SEPOLIA = blastSepolia.id;
 const MANTLE = mantle.id;
-const MANTLE_GOERLI = mantleTestnet.id;
 const MODE = mode.id;
 const MODE_SEPOLIA = modeTestnet.id;
 const BSC = bsc.id;
@@ -244,7 +242,6 @@ type Chain =
   | typeof BLAST
   | typeof BLAST_SEPOLIA
   | typeof MANTLE
-  | typeof MANTLE_GOERLI
   | typeof MODE
   | typeof MODE_SEPOLIA
   | typeof BSC
@@ -350,7 +347,6 @@ const CHAINS: Chain[] = [
   BLAST,
   BLAST_SEPOLIA,
   MANTLE,
-  MANTLE_GOERLI,
   MODE,
   MODE_SEPOLIA,
   BSC,
@@ -500,8 +496,6 @@ function getChainData(chain: Chain): ChainData {
       return blastSepolia;
     case MANTLE:
       return mantle;
-    case MANTLE_GOERLI:
-      return mantleTestnet;
     case MODE:
       return mode;
     case MODE_SEPOLIA:
@@ -713,8 +707,6 @@ function getAddressExplorerUrl(chain: Chain, address: Address): string | null {
       return `https://sepolia.blastscan.io/address/${address}`;
     case MANTLE:
       return `https://explorer.mantle.xyz/address/${address}`;
-    case MANTLE_GOERLI:
-      return `https://explorer.testnet.mantle.xyz/address/${address}`;
     case MODE:
       return `https://explorer.mode.network/address/${address}`;
     case MODE_SEPOLIA:
