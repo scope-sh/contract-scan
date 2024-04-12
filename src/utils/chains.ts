@@ -13,7 +13,6 @@ import {
   zora,
   zoraSepolia,
   polygon,
-  polygonMumbai,
   polygonAmoy,
   polygonZkEvm,
   polygonZkEvmCardona,
@@ -118,7 +117,6 @@ const BASE_SEPOLIA = baseSepolia.id;
 const ZORA = zora.id;
 const ZORA_SEPOLIA = zoraSepolia.id;
 const POLYGON = polygon.id;
-const POLYGON_MUMBAI = polygonMumbai.id;
 const POLYGON_AMOY = polygonAmoy.id;
 const POLYGON_ZKEVM = polygonZkEvm.id;
 const POLYGON_ZKEVM_CARDONA = polygonZkEvmCardona.id;
@@ -223,7 +221,6 @@ type Chain =
   | typeof ZORA
   | typeof ZORA_SEPOLIA
   | typeof POLYGON
-  | typeof POLYGON_MUMBAI
   | typeof POLYGON_AMOY
   | typeof POLYGON_ZKEVM
   | typeof POLYGON_ZKEVM_CARDONA
@@ -328,7 +325,6 @@ const CHAINS: Chain[] = [
   ZORA,
   ZORA_SEPOLIA,
   POLYGON,
-  POLYGON_MUMBAI,
   POLYGON_AMOY,
   POLYGON_ZKEVM,
   POLYGON_ZKEVM_CARDONA,
@@ -458,8 +454,6 @@ function getChainData(chain: Chain): ChainData {
       return zoraSepolia;
     case POLYGON:
       return polygon;
-    case POLYGON_MUMBAI:
-      return polygonMumbai;
     case POLYGON_AMOY:
       return polygonAmoy;
     case POLYGON_ZKEVM:
