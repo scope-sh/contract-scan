@@ -51,7 +51,7 @@ import {
   opBNB,
   opBNBTestnet,
   manta,
-  mantaTestnet,
+  mantaSepoliaTestnet,
   kava,
   kavaTestnet,
   taikoKatla,
@@ -149,7 +149,7 @@ const MOONRIVER = moonriver.id;
 const FLARE = flare.id;
 const FLARE_TESTNET = flareTestnet.id;
 const MANTA_PACIFIC = manta.id;
-const MANTA_PACIFIC_TESTNET = mantaTestnet.id;
+const MANTA_PACIFIC_SEPOLIA = mantaSepoliaTestnet.id;
 const KAVA = kava.id;
 const KAVA_TESTNET = kavaTestnet.id;
 const TAIKO_KATLA = taikoKatla.id;
@@ -253,7 +253,7 @@ type Chain =
   | typeof FLARE
   | typeof FLARE_TESTNET
   | typeof MANTA_PACIFIC
-  | typeof MANTA_PACIFIC_TESTNET
+  | typeof MANTA_PACIFIC_SEPOLIA
   | typeof KAVA
   | typeof KAVA_TESTNET
   | typeof TAIKO_KATLA
@@ -357,7 +357,7 @@ const CHAINS: Chain[] = [
   FLARE,
   FLARE_TESTNET,
   MANTA_PACIFIC,
-  MANTA_PACIFIC_TESTNET,
+  MANTA_PACIFIC_SEPOLIA,
   KAVA,
   KAVA_TESTNET,
   TAIKO_KATLA,
@@ -518,8 +518,8 @@ function getChainData(chain: Chain): ChainData {
       return flareTestnet;
     case MANTA_PACIFIC:
       return manta;
-    case MANTA_PACIFIC_TESTNET:
-      return mantaTestnet;
+    case MANTA_PACIFIC_SEPOLIA:
+      return mantaSepoliaTestnet;
     case KAVA:
       return kava;
     case KAVA_TESTNET:
