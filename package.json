@@ -12,7 +12,7 @@
     "smart-contracts",
     "devtools"
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/scope-sh/contract-scan.git"
