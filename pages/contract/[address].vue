@@ -6,7 +6,7 @@
           <div class="link">← Go Back</div>
         </router-link>
         <div class="header-details">
-          <div class="subtitle">Contract</div>
+          <div class="subtitle">{{ label }}</div>
           <div class="title">
             <h1>{{ address }}</h1>
             <ButtonCopy :value="address" />
@@ -29,6 +29,7 @@ import { type Address, type Hex, createPublicClient, http } from 'viem';
 import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
+import addresses from '@/addresses.json';
 import BlockInfo from '@/components/contract/BlockInfo.vue';
 import type { Status } from '@/components/contract/BlockStatus.vue';
 import ButtonCopy from '@/components/contract/ButtonCopy.vue';
@@ -43,6 +44,12 @@ import {
 const route = useRoute();
 
 const address = computed(() => route.params.address as Address);
+const label = computed(
+  () =>
+    (addresses as Record<Address, string | undefined>)[
+      address.value.toLowerCase() as Address
+    ] || 'Contract',
+);
 
 // eslint-disable-next-line no-undef
 useHead({
