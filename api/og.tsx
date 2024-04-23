@@ -31,8 +31,8 @@ export default function handler(request: VercelRequest): Response {
               justifyContent: 'center',
               flexDirection: 'column',
               gap: 44,
-              backgroundImage:
-                'linear-gradient(to bottom right, #0A0A0C, #17171E)',
+              background:
+                'linear-gradient(135deg, rgba(7,7,10,1) 0%, rgba(4,4,32,1) 80%, rgba(3,3,65,1) 100%)',
               letterSpacing: -1,
               fontWeight: 400,
               textAlign: 'center',
@@ -79,8 +79,8 @@ export default function handler(request: VercelRequest): Response {
             justifyContent: 'space-between',
             flexDirection: 'column',
             gap: 44,
-            backgroundImage:
-              'linear-gradient(to bottom right, #0A0A0C, #17171E)',
+            background:
+              'linear-gradient(135deg, rgba(7,7,10,1) 0%, rgba(4,4,32,1) 80%, rgba(3,3,65,1) 100%)',
             letterSpacing: -1,
             fontWeight: 400,
             textAlign: 'center',
