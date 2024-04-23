@@ -41,7 +41,7 @@ export default function handler(request: VercelRequest): Response {
             <div
               style={{
                 color: '#EDEDED',
-                fontSize: 48,
+                fontSize: 52,
               }}
             >
               ContractScan
@@ -52,7 +52,7 @@ export default function handler(request: VercelRequest): Response {
                 flexDirection: 'column',
                 alignItems: 'center',
                 color: '#A1A1A1',
-                fontSize: 32,
+                fontSize: 40,
                 gap: 4,
               }}
             >
@@ -90,7 +90,7 @@ export default function handler(request: VercelRequest): Response {
           <div
             style={{
               color: '#A1A1A1',
-              fontSize: 28,
+              fontSize: 32,
             }}
           >
             ContractScan
