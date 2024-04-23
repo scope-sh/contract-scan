@@ -3,6 +3,8 @@ import { ImageResponse } from '@vercel/og';
 import React from 'react';
 import { isAddress } from 'viem';
 
+import addresses from '../addresses.json';
+
 export const config = {
   runtime: 'edge',
 };
@@ -15,6 +17,7 @@ export default function handler(request: VercelRequest): Response {
     }
     const { searchParams } = new URL(request.url);
     const address = searchParams.get('address');
+    const label = addresses[address];
 
     if (!address || !isAddress(address)) {
       return new ImageResponse(
@@ -41,7 +44,7 @@ export default function handler(request: VercelRequest): Response {
                 fontSize: 48,
               }}
             >
-              Contract Scan
+              ContractScan
             </div>
             <div
               style={{
@@ -90,7 +93,7 @@ export default function handler(request: VercelRequest): Response {
               fontSize: 28,
             }}
           >
-            Contract Scan
+            ContractScan
           </div>
           <div
             style={{
@@ -106,7 +109,7 @@ export default function handler(request: VercelRequest): Response {
                 gap: 32,
               }}
             >
-              Contract
+              {label}
             </div>
             <div
               style={{
