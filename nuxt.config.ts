@@ -42,6 +42,10 @@ export default defineNuxtConfig({
           content: 'Search deployed contracts across 100+ EVM chains',
         },
       ],
+      script: [
+        { async: true, src: 'https://cdn.metrical.xyz/script.js' },
+        { children: 'window.metrical = { "app": "NHI_v97CY"}' },
+      ],
     },
   },
 });
