@@ -54,7 +54,7 @@ export default function handler(request: VercelRequest): Response {
               }}
             >
               <div>Search deployed contracts</div>
-              <div>across 50+ EVM chains</div>
+              <div>across 100+ EVM chains</div>
             </div>
           </div>
         ),
@@ -81,13 +81,13 @@ export default function handler(request: VercelRequest): Response {
             letterSpacing: -1,
             fontWeight: 400,
             textAlign: 'center',
-            padding: 32,
+            padding: '64px 32px',
           }}
         >
           <div
             style={{
               color: '#A1A1A1',
-              fontSize: 24,
+              fontSize: 28,
             }}
           >
             Contract Scan
@@ -102,7 +102,7 @@ export default function handler(request: VercelRequest): Response {
             <div
               style={{
                 color: '#EDEDED',
-                fontSize: 48,
+                fontSize: 56,
                 gap: 32,
               }}
             >
@@ -113,7 +113,7 @@ export default function handler(request: VercelRequest): Response {
                 color: '#7B7B7B',
                 background: '#1B1B1B',
                 borderRadius: 8,
-                fontSize: 36,
+                fontSize: 40,
                 padding: '4px 8px',
                 fontFamily: 'monospace',
               }}
