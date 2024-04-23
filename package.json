@@ -30,7 +30,11 @@
   "dependencies": {
     "@fontsource-variable/inconsolata": "^5.0.17",
     "@fontsource-variable/inter": "^5.0.17",
+    "@types/react": "^18.2.79",
+    "@vercel/node": "^3.0.27",
+    "@vercel/og": "^0.6.2",
     "@vueuse/core": "^10.9.0",
+    "react": "^18.2.0",
     "viem": "^2.9.12",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0"
@@ -38,8 +42,6 @@
   "devDependencies": {
     "@types/bun": "^1.1.0",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@vercel/node": "^3.0.27",
-    "@vercel/og": "^0.6.2",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/compiler-sfc": "^3.4.19",
     "eslint": "^8.57.0",
