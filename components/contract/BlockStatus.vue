@@ -20,6 +20,7 @@ defineProps<{ status: Status }>();
 <script lang="ts">
 type Status = 'success' | 'warning' | 'empty' | 'progress' | 'error';
 
+// eslint-disable-next-line import/prefer-default-export
 export type { Status };
 </script>
 

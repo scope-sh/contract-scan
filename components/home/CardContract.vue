@@ -31,6 +31,7 @@ interface Contract {
   address: string;
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export type { Contract };
 </script>
 

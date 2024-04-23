@@ -1,4 +1,4 @@
-import { Address, Chain as ChainData } from 'viem';
+import type { Address, Chain as ChainData } from 'viem';
 import {
   mainnet,
   sepolia,

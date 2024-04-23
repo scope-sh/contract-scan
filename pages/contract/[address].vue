@@ -25,17 +25,17 @@
 </template>
 
 <script setup lang="ts">
-import { Address, Hex, createPublicClient, http } from 'viem';
+import { type Address, type Hex, createPublicClient, http } from 'viem';
 import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 import BlockInfo from '@/components/contract/BlockInfo.vue';
-import { Status } from '@/components/contract/BlockStatus.vue';
+import type { Status } from '@/components/contract/BlockStatus.vue';
 import ButtonCopy from '@/components/contract/ButtonCopy.vue';
 import ChainList from '@/components/contract/ChainList.vue';
 import {
+  type Chain,
   CHAINS,
-  Chain,
   getChainData,
   getChainEndpointUrl,
 } from '@/utils/chains';
@@ -43,6 +43,20 @@ import {
 const route = useRoute();
 
 const address = computed(() => route.params.address as Address);
+
+// eslint-disable-next-line no-undef
+useHead({
+  meta: [
+    {
+      property: 'og:image',
+      content: `https://contractscan.xyz/api/og?address=${address.value}`,
+    },
+    {
+      property: 'twitter:image',
+      content: `https://contractscan.xyz/api/og?address=${address.value}`,
+    },
+  ],
+});
 
 const chains = ref(getInitialChainStatus());
 

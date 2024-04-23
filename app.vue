@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <router-view />
+    <NuxtPage />
     <footer />
   </div>
 </template>

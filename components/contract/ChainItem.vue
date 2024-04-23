@@ -17,13 +17,17 @@
 </template>
 
 <script setup lang="ts">
-import { Address } from 'viem';
+import type { Address } from 'viem';
 import { computed } from 'vue';
 
 import IconExternalLink from '@/components/__common/icon/ExternalLink.vue';
-import { Chain, getChainName, getAddressExplorerUrl } from '@/utils/chains';
+import {
+  type Chain,
+  getChainName,
+  getAddressExplorerUrl,
+} from '@/utils/chains';
 
-import BlockStatus, { Status } from './BlockStatus.vue';
+import BlockStatus, { type Status } from './BlockStatus.vue';
 
 const props = defineProps<{
   address: Address;

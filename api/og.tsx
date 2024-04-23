@@ -13,11 +13,10 @@ export default function handler(request: VercelRequest): Response {
         status: 400,
       });
     }
-    const { pathname } = new URL(request.url);
-    const tokens = pathname.split('/').at(-1);
-    const address = tokens && isAddress(tokens) ? tokens : null;
+    const { searchParams } = new URL(request.url);
+    const address = searchParams.get('address');
 
-    if (!address) {
+    if (!address || !isAddress(address)) {
       return new ImageResponse(
         (
           <div

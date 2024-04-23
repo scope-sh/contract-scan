@@ -11,12 +11,12 @@
 </template>
 
 <script setup lang="ts">
-import { Address } from 'viem';
+import type { Address } from 'viem';
 import { computed } from 'vue';
 
-import { Chain } from '@/utils/chains';
+import type { Chain } from '@/utils/chains';
 
-import { Status } from './BlockStatus.vue';
+import type { Status } from './BlockStatus.vue';
 import ChainItem from './ChainItem.vue';
 
 const props = defineProps<{
