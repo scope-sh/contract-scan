@@ -107,8 +107,6 @@ import {
   wanchainTestnet,
   zilliqa,
   zilliqaTestnet,
-  flowMainnet,
-  flowTestnet,
 } from 'viem/chains';
 
 const ETHEREUM = mainnet.id;
@@ -212,8 +210,6 @@ const WANCHAIN = wanchain.id;
 const WANCHAIN_TESTNET = wanchainTestnet.id;
 const ZILLIQA = zilliqa.id;
 const ZILLIQA_TESTNET = zilliqaTestnet.id;
-const FLOW_MAINNET = flowMainnet.id;
-const FLOW_TESTNET = flowTestnet.id;
 
 type Chain =
   | typeof ETHEREUM
@@ -316,9 +312,7 @@ type Chain =
   | typeof WANCHAIN
   | typeof WANCHAIN_TESTNET
   | typeof ZILLIQA
-  | typeof ZILLIQA_TESTNET
-  | typeof FLOW_MAINNET
-  | typeof FLOW_TESTNET;
+  | typeof ZILLIQA_TESTNET;
 
 const CHAINS: Chain[] = [
   ETHEREUM,
@@ -422,8 +416,6 @@ const CHAINS: Chain[] = [
   WANCHAIN_TESTNET,
   ZILLIQA,
   ZILLIQA_TESTNET,
-  FLOW_MAINNET,
-  FLOW_TESTNET,
 ];
 
 function getChainEndpointUrl(chain: Chain): string | null {
@@ -640,10 +632,6 @@ function getChainData(chain: Chain): ChainData {
       return zilliqa;
     case ZILLIQA_TESTNET:
       return zilliqaTestnet;
-    case FLOW_MAINNET:
-      return flowMainnet;
-    case FLOW_TESTNET:
-      return flowTestnet;
   }
 }
 
