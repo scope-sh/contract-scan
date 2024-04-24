@@ -76,12 +76,7 @@ function handleIconClick(): void {
 }
 
 function openContractPage(address: string): void {
-  router.push({
-    name: 'contract',
-    params: {
-      address,
-    },
-  });
+  router.push(`/contract/${address}`);
 }
 
 const examples: Contract[] = [
