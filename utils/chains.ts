@@ -38,6 +38,7 @@ import {
   blast,
   blastSepolia,
   mantle,
+  mantleSepoliaTestnet,
   mode,
   modeTestnet,
   bsc,
@@ -142,6 +143,7 @@ const LINEA_SEPOLIA = lineaSepolia.id;
 const BLAST = blast.id;
 const BLAST_SEPOLIA = blastSepolia.id;
 const MANTLE = mantle.id;
+const MANTLE_SEPOLIA = mantleSepoliaTestnet.id;
 const MODE = mode.id;
 const MODE_SEPOLIA = modeTestnet.id;
 const BSC = bsc.id;
@@ -246,6 +248,7 @@ type Chain =
   | typeof BLAST
   | typeof BLAST_SEPOLIA
   | typeof MANTLE
+  | typeof MANTLE_SEPOLIA
   | typeof MODE
   | typeof MODE_SEPOLIA
   | typeof BSC
@@ -350,6 +353,7 @@ const CHAINS: Chain[] = [
   BLAST,
   BLAST_SEPOLIA,
   MANTLE,
+  MANTLE_SEPOLIA,
   MODE,
   MODE_SEPOLIA,
   BSC,
@@ -498,6 +502,8 @@ function getChainData(chain: Chain): ChainData {
       return blastSepolia;
     case MANTLE:
       return mantle;
+    case MANTLE_SEPOLIA:
+      return mantleSepoliaTestnet;
     case MODE:
       return mode;
     case MODE_SEPOLIA:
