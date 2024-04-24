@@ -85,7 +85,6 @@ async function getCodeHash(chain: Chain): Promise<Hex | null> {
   }
   const code = await getChainCode(chain, address.value);
   if (code) {
-    console.log(chain, code.slice(0, 16), keccak256(code));
     return keccak256(code);
   }
   return null;
