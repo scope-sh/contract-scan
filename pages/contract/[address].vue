@@ -75,7 +75,7 @@ watch(
   },
 );
 
-async function getCodeHash(chain: Chain): Promise<Hex | null> {
+async function getCodeHash(chain: Chain): Promise<Hex | null | undefined> {
   const cachedCodeHash =
     (cache as Record<Address, Partial<Record<Chain, Hex>>>)[address.value]?.[
       chain
@@ -87,7 +87,7 @@ async function getCodeHash(chain: Chain): Promise<Hex | null> {
   if (code) {
     return keccak256(code);
   }
-  return null;
+  return code;
 }
 
 async function fetchCode(): Promise<void> {
