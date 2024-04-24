@@ -55,6 +55,7 @@ import {
   immutableZkEvmTestnet,
   aurora,
   auroraTestnet,
+  degen,
   opBNB,
   opBNBTestnet,
   manta,
@@ -171,6 +172,7 @@ const KLAYTN = klaytn.id;
 const KLAYTN_BAOBAB = klaytnBaobab.id;
 const AURORA = aurora.id;
 const AURORA_TESTNET = auroraTestnet.id;
+const DEGEN = degen.id;
 const HARMONY = harmonyOne.id;
 const CRONOS = cronos.id;
 const OP_BNB = opBNB.id;
@@ -276,6 +278,7 @@ type Chain =
   | typeof KLAYTN_BAOBAB
   | typeof AURORA
   | typeof AURORA_TESTNET
+  | typeof DEGEN
   | typeof HARMONY
   | typeof CRONOS
   | typeof OP_BNB
@@ -381,6 +384,7 @@ const CHAINS: Chain[] = [
   KLAYTN_BAOBAB,
   AURORA,
   AURORA_TESTNET,
+  DEGEN,
   HARMONY,
   CRONOS,
   OP_BNB,
@@ -558,6 +562,8 @@ function getChainData(chain: Chain): ChainData {
       return aurora;
     case AURORA_TESTNET:
       return auroraTestnet;
+    case DEGEN:
+      return degen;
     case HARMONY:
       return harmonyOne;
     case CRONOS:
