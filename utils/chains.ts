@@ -105,8 +105,6 @@ import {
   taraxaTestnet,
   wanchain,
   wanchainTestnet,
-  xdc,
-  xdcTestnet,
   zilliqa,
   zilliqaTestnet,
   flowMainnet,
@@ -212,8 +210,6 @@ const TARAXA = taraxa.id;
 const TARAXA_TESTNET = taraxaTestnet.id;
 const WANCHAIN = wanchain.id;
 const WANCHAIN_TESTNET = wanchainTestnet.id;
-const XDC = xdc.id;
-const XDC_TESTNET = xdcTestnet.id;
 const ZILLIQA = zilliqa.id;
 const ZILLIQA_TESTNET = zilliqaTestnet.id;
 const FLOW_MAINNET = flowMainnet.id;
@@ -319,8 +315,6 @@ type Chain =
   | typeof TARAXA_TESTNET
   | typeof WANCHAIN
   | typeof WANCHAIN_TESTNET
-  | typeof XDC
-  | typeof XDC_TESTNET
   | typeof ZILLIQA
   | typeof ZILLIQA_TESTNET
   | typeof FLOW_MAINNET
@@ -426,8 +420,6 @@ const CHAINS: Chain[] = [
   TARAXA_TESTNET,
   WANCHAIN,
   WANCHAIN_TESTNET,
-  XDC,
-  XDC_TESTNET,
   ZILLIQA,
   ZILLIQA_TESTNET,
   FLOW_MAINNET,
@@ -644,10 +636,6 @@ function getChainData(chain: Chain): ChainData {
       return wanchain;
     case WANCHAIN_TESTNET:
       return wanchainTestnet;
-    case XDC:
-      return xdc;
-    case XDC_TESTNET:
-      return xdcTestnet;
     case ZILLIQA:
       return zilliqa;
     case ZILLIQA_TESTNET:
