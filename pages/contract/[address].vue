@@ -25,30 +25,27 @@
 </template>
 
 <script setup lang="ts">
-import { type Address, type Hex, createPublicClient, http } from 'viem';
+import { keccak256, type Address, type Hex } from 'viem';
 import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
-import addresses from '@/addresses.json';
 import BlockInfo from '@/components/contract/BlockInfo.vue';
 import type { Status } from '@/components/contract/BlockStatus.vue';
 import ButtonCopy from '@/components/contract/ButtonCopy.vue';
 import ChainList from '@/components/contract/ChainList.vue';
-import {
-  type Chain,
-  CHAINS,
-  getChainData,
-  getChainEndpointUrl,
-} from '@/utils/chains';
+import addresses from '@/data/addresses.json';
+import cache from '@/data/cache.json';
+import { type Chain, CHAINS, getCode as getChainCode } from '@/utils/chains';
 
 const route = useRoute();
 
-const address = computed(() => route.params.address as Address);
+const address = computed(
+  () => (route.params.address as Address).toLowerCase() as Address,
+);
 const label = computed(
   () =>
-    (addresses as Record<Address, string | undefined>)[
-      address.value.toLowerCase() as Address
-    ] || 'Contract',
+    (addresses as Record<Address, string | undefined>)[address.value] ||
+    'Contract',
 );
 
 // eslint-disable-next-line no-undef
@@ -78,27 +75,24 @@ watch(
   },
 );
 
-async function getChainCode(chain: Chain): Promise<Hex | null | undefined> {
-  const endpointUrl = getChainEndpointUrl(chain);
-  if (!endpointUrl) {
-    return undefined;
+async function getCodeHash(chain: Chain): Promise<Hex | null> {
+  const cachedCodeHash =
+    (cache as Record<Address, Partial<Record<Chain, Hex>>>)[address.value]?.[
+      chain
+    ] || null;
+  if (cachedCodeHash) {
+    return cachedCodeHash;
   }
-  const chainClient = createPublicClient({
-    chain: getChainData(chain),
-    transport: http(endpointUrl),
-  });
-  try {
-    const code = await chainClient.getBytecode({
-      address: address.value,
-    });
-    return code || null;
-  } catch {
-    return undefined;
+  const code = await getChainCode(chain, address.value);
+  if (code) {
+    console.log(chain, code.slice(0, 16), keccak256(code));
+    return keccak256(code);
   }
+  return null;
 }
 
 async function fetchCode(): Promise<void> {
-  let referenceBytecode: Hex | null = null;
+  let referenceCodeHash: Hex | null = null;
   // Split chains into batches to query contract code in parallel
   const batchSize = 10;
   const batchedChains: Chain[][] = [];
@@ -111,15 +105,15 @@ async function fetchCode(): Promise<void> {
   for (const batch of batchedChains) {
     await Promise.all(
       batch.map(async (chain) => {
-        const code = await getChainCode(chain);
-        if (!referenceBytecode && code) {
-          referenceBytecode = code;
+        const codeHash = await getCodeHash(chain);
+        if (!referenceCodeHash && codeHash) {
+          referenceCodeHash = codeHash;
         }
-        const status = code
-          ? referenceBytecode === code
+        const status = codeHash
+          ? referenceCodeHash === codeHash
             ? 'success'
             : 'warning'
-          : code === null
+          : codeHash === null
             ? 'empty'
             : 'error';
         const chainIndex = chains.value.findIndex(

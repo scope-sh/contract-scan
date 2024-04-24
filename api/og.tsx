@@ -3,7 +3,7 @@ import { ImageResponse } from '@vercel/og';
 import React from 'react';
 import { isAddress } from 'viem';
 
-import addresses from '../addresses.json';
+import addresses from '../data/addresses.json';
 
 export const config = {
   runtime: 'edge',

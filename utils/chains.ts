@@ -1,4 +1,10 @@
-import type { Address, Chain as ChainData } from 'viem';
+import {
+  createPublicClient,
+  http,
+  type Address,
+  type Chain as ChainData,
+  type Hex,
+} from 'viem';
 import {
   mainnet,
   sepolia,
@@ -648,11 +654,34 @@ function getAddressExplorerUrl(chain: Chain, address: Address): string | null {
   return `${defaultBlockExplorer.url}/address/${address}`;
 }
 
+async function getCode(
+  chain: Chain,
+  address: Address,
+): Promise<Hex | null | undefined> {
+  const endpointUrl = getChainEndpointUrl(chain);
+  if (!endpointUrl) {
+    return undefined;
+  }
+  const chainClient = createPublicClient({
+    chain: getChainData(chain),
+    transport: http(endpointUrl),
+  });
+  try {
+    const code = await chainClient.getBytecode({
+      address,
+    });
+    return code || null;
+  } catch {
+    return undefined;
+  }
+}
+
 export {
   CHAINS,
   getChainEndpointUrl,
   getChainName,
   getChainData,
   getAddressExplorerUrl,
+  getCode,
 };
 export type { Chain };
