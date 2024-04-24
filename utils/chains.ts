@@ -96,6 +96,8 @@ import {
   neonDevnet,
   pgn,
   pgnTestnet,
+  cyber,
+  cyberTestnet,
   rollux,
   rolluxTestnet,
   sapphire,
@@ -199,6 +201,8 @@ const NEON = neonMainnet.id;
 const NEON_DEVNET = neonDevnet.id;
 const PGN = pgn.id;
 const PGN_TESTNET = pgnTestnet.id;
+const CYBER = cyber.id;
+const CYBER_TESTNET = cyberTestnet.id;
 const ROLLUX = rollux.id;
 const ROLLUX_TESTNET = rolluxTestnet.id;
 const SAPPHIRE = sapphire.id;
@@ -302,6 +306,8 @@ type Chain =
   | typeof NEON_DEVNET
   | typeof PGN
   | typeof PGN_TESTNET
+  | typeof CYBER
+  | typeof CYBER_TESTNET
   | typeof ROLLUX
   | typeof ROLLUX_TESTNET
   | typeof SAPPHIRE
@@ -405,6 +411,8 @@ const CHAINS: Chain[] = [
   NEON_DEVNET,
   PGN,
   PGN_TESTNET,
+  CYBER,
+  CYBER_TESTNET,
   ROLLUX,
   ROLLUX_TESTNET,
   SAPPHIRE,
@@ -610,6 +618,10 @@ function getChainData(chain: Chain): ChainData {
       return pgn;
     case PGN_TESTNET:
       return pgnTestnet;
+    case CYBER:
+      return cyber;
+    case CYBER_TESTNET:
+      return cyberTestnet;
     case ROLLUX:
       return rollux;
     case ROLLUX_TESTNET:
