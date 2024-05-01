@@ -25,7 +25,7 @@ async function run(): Promise<void> {
       newCache[address as Address][chain] = keccak256(code);
     }
   }
-  console.log(JSON.stringify(cache, null, 2));
+  console.log(JSON.stringify(newCache, null, 2));
 }
 
 run();
