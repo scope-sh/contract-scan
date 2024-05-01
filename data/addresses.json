@@ -63,5 +63,7 @@
   "0x939263eafe57038a072cb4edd6b25dd81a8a6c56": "Pimlico: USDC Paymaster",
   "0x4fd9098af9ddcb41da48a1d78f91f1398965addc": "Alchemy: Paymaster",
   "0x0000000000001addcb933dd5028159dc965b5b7f": "Dagon",
-  "0x000000000000f096b212bc59b56be28b65a25f9d": "Tokenized Safes"
+  "0x000000000000f096b212bc59b56be28b65a25f9d": "Tokenized Safes",
+  "0xa581c4a4db7175302464ff3c06380bc3270b4037": "Safe 4337 Module",
+  "0x0ba5ed0c6aa8c49038f819e587e2633c4a9f428a": "Coinbase Smart Wallet Factory V1"
 }
