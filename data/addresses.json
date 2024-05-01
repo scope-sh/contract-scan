@@ -65,5 +65,6 @@
   "0x0000000000001addcb933dd5028159dc965b5b7f": "Dagon",
   "0x000000000000f096b212bc59b56be28b65a25f9d": "Tokenized Safes",
   "0xa581c4a4db7175302464ff3c06380bc3270b4037": "Safe 4337 Module",
-  "0x0ba5ed0c6aa8c49038f819e587e2633c4a9f428a": "Coinbase Smart Wallet Factory V1"
+  "0x0ba5ed0c6aa8c49038f819e587e2633c4a9f428a": "Coinbase Smart Wallet Factory V1",
+  "0x0000000000008743d388e5279b2a9ef87a3115ae": "Ragequitter"
 }
