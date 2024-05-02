@@ -6,6 +6,7 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'alternate icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'mask-icon', href: '/mask-icon.svg', color: '#000000' },
         {
           rel: 'apple-touch-icon',
