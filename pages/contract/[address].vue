@@ -91,7 +91,38 @@ async function getCodeHash(chain: Chain): Promise<Hex | null | undefined> {
 }
 
 async function fetchCode(): Promise<void> {
+  function processCodeHash(
+    chain: Chain,
+    codeHash: Hex | null | undefined,
+  ): void {
+    if (!referenceCodeHash && codeHash) {
+      referenceCodeHash = codeHash;
+    }
+    const status = codeHash
+      ? referenceCodeHash === codeHash
+        ? 'success'
+        : 'warning'
+      : codeHash === null
+        ? 'empty'
+        : 'error';
+    const chainIndex = chains.value.findIndex(
+      (chainStatus) => chainStatus.id === chain,
+    );
+    const chainValue = chains.value[chainIndex];
+    if (chainValue) {
+      chainValue.status = status;
+    }
+  }
   let referenceCodeHash: Hex | null = null;
+  // Get cached code first
+  const cachedCodeHashes = (
+    cache as Record<Address, Partial<Record<Chain, Hex>>>
+  )[address.value];
+  for (const chainKey in cachedCodeHashes) {
+    const chain = parseInt(chainKey) as Chain;
+    const codeHash = cachedCodeHashes[chain];
+    processCodeHash(chain, codeHash);
+  }
   // Split chains into batches to query contract code in parallel
   const batchSize = 10;
   const batchedChains: Chain[][] = [];
@@ -105,23 +136,7 @@ async function fetchCode(): Promise<void> {
     await Promise.all(
       batch.map(async (chain) => {
         const codeHash = await getCodeHash(chain);
-        if (!referenceCodeHash && codeHash) {
-          referenceCodeHash = codeHash;
-        }
-        const status = codeHash
-          ? referenceCodeHash === codeHash
-            ? 'success'
-            : 'warning'
-          : codeHash === null
-            ? 'empty'
-            : 'error';
-        const chainIndex = chains.value.findIndex(
-          (chainStatus) => chainStatus.id === chain,
-        );
-        const chainValue = chains.value[chainIndex];
-        if (chainValue) {
-          chainValue.status = status;
-        }
+        processCodeHash(chain, codeHash);
       }),
     );
   }
