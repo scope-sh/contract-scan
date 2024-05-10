@@ -62,7 +62,7 @@ import {
   mantaSepoliaTestnet,
   kava,
   kavaTestnet,
-  taikoKatla,
+  taikoHekla,
   palm,
   palmTestnet,
   boba,
@@ -161,7 +161,7 @@ const MANTA_PACIFIC = manta.id;
 const MANTA_PACIFIC_SEPOLIA = mantaSepoliaTestnet.id;
 const KAVA = kava.id;
 const KAVA_TESTNET = kavaTestnet.id;
-const TAIKO_KATLA = taikoKatla.id;
+const TAIKO_HEKLA = taikoHekla.id;
 const PALM = palm.id;
 const PALM_TESTNET = palmTestnet.id;
 const IMMUTABLE_ZKEVM = immutableZkEvm.id;
@@ -267,7 +267,7 @@ type Chain =
   | typeof MANTA_PACIFIC_SEPOLIA
   | typeof KAVA
   | typeof KAVA_TESTNET
-  | typeof TAIKO_KATLA
+  | typeof TAIKO_HEKLA
   | typeof PALM
   | typeof PALM_TESTNET
   | typeof IMMUTABLE_ZKEVM
@@ -373,7 +373,7 @@ const CHAINS: Chain[] = [
   MANTA_PACIFIC_SEPOLIA,
   KAVA,
   KAVA_TESTNET,
-  TAIKO_KATLA,
+  TAIKO_HEKLA,
   PALM,
   PALM_TESTNET,
   IMMUTABLE_ZKEVM,
@@ -540,8 +540,8 @@ function getChainData(chain: Chain): ChainData {
       return kava;
     case KAVA_TESTNET:
       return kavaTestnet;
-    case TAIKO_KATLA:
-      return taikoKatla;
+    case TAIKO_HEKLA:
+      return taikoHekla;
     case PALM:
       return palm;
     case PALM_TESTNET:
