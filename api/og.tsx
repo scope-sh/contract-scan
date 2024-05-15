@@ -17,11 +17,17 @@ export default function handler(request: VercelRequest): Response {
     }
     const { searchParams } = new URL(request.url);
     const address = searchParams.get('address');
-    const label = addresses[address];
+    if (!address) {
+      return new Response(`Failed to generate the image`, {
+        status: 400,
+      });
+    }
+    const label = (addresses as Record<string, string>)[address];
 
     if (!address || !isAddress(address)) {
       return new ImageResponse(
         (
+          // @ts-ignore
           <div
             style={{
               display: 'flex',
@@ -70,6 +76,7 @@ export default function handler(request: VercelRequest): Response {
 
     return new ImageResponse(
       (
+        // @ts-ignore
         <div
           style={{
             display: 'flex',
