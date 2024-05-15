@@ -1,6 +1,0 @@
-const CardContract_vue_vue_type_style_index_0_scoped_23e5cebd_lang = "a[data-v-23e5cebd]{color:inherit;text-decoration:none}.card[data-v-23e5cebd]{border:1px solid var(--color-border-primary);border-radius:var(--border-radius-medium);cursor:pointer;display:flex;flex-direction:column;gap:12px;opacity:.6;padding:14px;transition:all .25s ease-in-out}.card[data-v-23e5cebd]:hover{opacity:1}.title[data-v-23e5cebd]{font-size:var(--font-size-medium)}.details[data-v-23e5cebd]{display:flex;flex-direction:column;gap:10px}.description[data-v-23e5cebd]{--line-height:1.25em;--max-lines:3;color:var(--color-text-secondary);font-size:var(--font-size-small);height:calc(var(--line-height)*var(--max-lines));line-height:var(--line-height)}.address[data-v-23e5cebd]{display:flex}.address-label[data-v-23e5cebd]{background:var(--color-background-tertiary);border-radius:var(--border-radius-tiny);color:var(--color-text-tertiary);font-family:var(--font-mono);font-size:var(--font-size-tiny);padding:2px 4px}";
-
-const CardContractStyles_CiS57sbF = [CardContract_vue_vue_type_style_index_0_scoped_23e5cebd_lang];
-
-export { CardContractStyles_CiS57sbF as default };
-//# sourceMappingURL=CardContract-styles.CiS57sbF.mjs.map
