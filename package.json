@@ -24,9 +24,9 @@
     "generate": "nuxt generate",
     "cache": "bun scripts/cache.ts",
     "lint": "bun run lint:prettier && bun run lint:eslint && bun run lint:stylelint",
-    "lint:prettier": "prettier -c \"src/**/*.{json,js,ts,vue}\"",
-    "lint:eslint": "eslint \"src/**/*.{js,ts,vue}\"",
-    "lint:stylelint": "stylelint \"src/**/*.{css,vue}\"",
+    "lint:prettier": "prettier -c \"{api,components,data,pages,public,scripts,src,utils}/**/*.{json,js,ts,vue}\"",
+    "lint:eslint": "eslint \"{api,components,data,pages,public,scripts,src,utils}/**/*.{js,ts,vue}\"",
+    "lint:stylelint": "stylelint \"{api,components,data,pages,public,scripts,src,utils}/**/*.{css,vue}\"",
     "typecheck": "tsc --noEmit && vue-tsc --noEmit"
   },
   "dependencies": {
