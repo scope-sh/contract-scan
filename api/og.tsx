@@ -27,7 +27,6 @@ export default function handler(request: VercelRequest): Response {
     if (!address || !isAddress(address)) {
       return new ImageResponse(
         (
-          // @ts-ignore
           <div
             style={{
               display: 'flex',
@@ -76,7 +75,6 @@ export default function handler(request: VercelRequest): Response {
 
     return new ImageResponse(
       (
-        // @ts-ignore
         <div
           style={{
             display: 'flex',
