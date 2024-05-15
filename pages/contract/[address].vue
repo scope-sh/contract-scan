@@ -48,7 +48,6 @@ const label = computed(
     'Contract',
 );
 
-// eslint-disable-next-line no-undef
 useHead({
   meta: [
     {

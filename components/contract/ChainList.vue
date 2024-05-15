@@ -14,10 +14,10 @@
 import type { Address } from 'viem';
 import { computed } from 'vue';
 
-import type { Chain } from '@/utils/chains';
-
 import type { Status } from './BlockStatus.vue';
 import ChainItem from './ChainItem.vue';
+
+import type { Chain } from '@/utils/chains';
 
 const props = defineProps<{
   address: Address;

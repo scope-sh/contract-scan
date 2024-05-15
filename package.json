@@ -25,7 +25,7 @@
     "cache": "bun scripts/cache.ts",
     "lint": "bun run lint:prettier && bun run lint:eslint && bun run lint:stylelint",
     "lint:prettier": "prettier -c \"{api,components,data,pages,public,scripts,src,utils}/**/*.{json,js,ts,vue}\"",
-    "lint:eslint": "eslint \"{api,components,data,pages,public,scripts,src,utils}/**/*.{js,ts,vue}\"",
+    "lint:eslint": "eslint .",
     "lint:stylelint": "stylelint \"{api,components,data,pages,public,scripts,src,utils}/**/*.{css,vue}\"",
     "typecheck": "tsc --noEmit && vue-tsc --noEmit"
   },
@@ -43,14 +43,12 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@nuxt/eslint": "^0.3.12",
     "@types/bun": "^1.1.0",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/compiler-sfc": "^3.4.19",
-    "eslint": "^8.57.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-vue": "^9.22.0",
+    "eslint": "^9.2.0",
     "prettier": "^3.2.5",
     "stylelint": "^16.2.1",
     "stylelint-config-property-sort-order-smacss": "^10.0.0",

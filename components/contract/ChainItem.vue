@@ -20,14 +20,14 @@
 import type { Address } from 'viem';
 import { computed } from 'vue';
 
+import BlockStatus, { type Status } from './BlockStatus.vue';
+
 import IconExternalLink from '@/components/__common/icon/ExternalLink.vue';
 import {
   type Chain,
   getChainName,
   getAddressExplorerUrl,
 } from '@/utils/chains';
-
-import BlockStatus, { type Status } from './BlockStatus.vue';
 
 const props = defineProps<{
   address: Address;

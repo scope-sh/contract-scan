@@ -1,5 +1,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   app: {
     head: {
       charset: 'utf-8',
@@ -48,4 +49,6 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  modules: ["@nuxt/eslint"]
 });
