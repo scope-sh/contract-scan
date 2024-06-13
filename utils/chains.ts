@@ -63,6 +63,7 @@ import {
   kava,
   kavaTestnet,
   taikoHekla,
+  taiko,
   palm,
   palmTestnet,
   boba,
@@ -99,6 +100,13 @@ import {
   pgnTestnet,
   cyber,
   cyberTestnet,
+  redstone,
+  lycan,
+  sei,
+  seiDevnet,
+  xai,
+  xaiTestnet,
+  kakarotSepolia,
   rollux,
   rolluxTestnet,
   sapphire,
@@ -162,6 +170,7 @@ const MANTA_PACIFIC_SEPOLIA = mantaSepoliaTestnet.id;
 const KAVA = kava.id;
 const KAVA_TESTNET = kavaTestnet.id;
 const TAIKO_HEKLA = taikoHekla.id;
+const TAIKO = taiko.id;
 const PALM = palm.id;
 const PALM_TESTNET = palmTestnet.id;
 const IMMUTABLE_ZKEVM = immutableZkEvm.id;
@@ -205,6 +214,13 @@ const PGN = pgn.id;
 const PGN_TESTNET = pgnTestnet.id;
 const CYBER = cyber.id;
 const CYBER_TESTNET = cyberTestnet.id;
+const REDSTONE = redstone.id;
+const LYCAN = lycan.id;
+const SEI = sei.id;
+const SEI_DEVNET = seiDevnet.id;
+const XAI = xai.id;
+const XAI_TESTNET = xaiTestnet.id;
+const KAKAROT_SEPOLIA = kakarotSepolia.id;
 const ROLLUX = rollux.id;
 const ROLLUX_TESTNET = rolluxTestnet.id;
 const SAPPHIRE = sapphire.id;
@@ -268,6 +284,7 @@ type Chain =
   | typeof KAVA
   | typeof KAVA_TESTNET
   | typeof TAIKO_HEKLA
+  | typeof TAIKO
   | typeof PALM
   | typeof PALM_TESTNET
   | typeof IMMUTABLE_ZKEVM
@@ -311,6 +328,13 @@ type Chain =
   | typeof PGN_TESTNET
   | typeof CYBER
   | typeof CYBER_TESTNET
+  | typeof REDSTONE
+  | typeof LYCAN
+  | typeof SEI
+  | typeof SEI_DEVNET
+  | typeof XAI
+  | typeof XAI_TESTNET
+  | typeof KAKAROT_SEPOLIA
   | typeof ROLLUX
   | typeof ROLLUX_TESTNET
   | typeof SAPPHIRE
@@ -374,6 +398,7 @@ const CHAINS: Chain[] = [
   KAVA,
   KAVA_TESTNET,
   TAIKO_HEKLA,
+  TAIKO,
   PALM,
   PALM_TESTNET,
   IMMUTABLE_ZKEVM,
@@ -417,6 +442,13 @@ const CHAINS: Chain[] = [
   PGN_TESTNET,
   CYBER,
   CYBER_TESTNET,
+  REDSTONE,
+  LYCAN,
+  SEI,
+  SEI_DEVNET,
+  XAI,
+  XAI_TESTNET,
+  KAKAROT_SEPOLIA,
   ROLLUX,
   ROLLUX_TESTNET,
   SAPPHIRE,
@@ -542,6 +574,8 @@ function getChainData(chain: Chain): ChainData {
       return kavaTestnet;
     case TAIKO_HEKLA:
       return taikoHekla;
+    case TAIKO:
+      return taiko;
     case PALM:
       return palm;
     case PALM_TESTNET:
@@ -628,6 +662,20 @@ function getChainData(chain: Chain): ChainData {
       return cyber;
     case CYBER_TESTNET:
       return cyberTestnet;
+    case REDSTONE:
+      return redstone;
+    case LYCAN:
+      return lycan;
+    case SEI:
+      return sei;
+    case SEI_DEVNET:
+      return seiDevnet;
+    case XAI:
+      return xai;
+    case XAI_TESTNET:
+      return xaiTestnet;
+    case KAKAROT_SEPOLIA:
+      return kakarotSepolia;
     case ROLLUX:
       return rollux;
     case ROLLUX_TESTNET:
