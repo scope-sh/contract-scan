@@ -59,6 +59,8 @@
   "0x34dedac925c00d63bd91800ff821e535fe59d6f5": "Rhinestone Registry Hook",
   "0xab614e4a5398bb2a2a0bf73f9c913ec7ff47d81f": "Rhinestone Deadman Switch",
   "0x6d561a8aee519807b7bf1313d59fd6d41372ed7f": "Rhinestone Hook MultiPlexer",
+  "0x11d02847245df7cf19f48c8907ace59289d8acee": "Rhinestone Mock Validator",
+  "0x25a4b2f363678e13a0a5db79b712de00347a593e": "Rhinestone Mock Registry",
   "0xb02456a0ec77837b22156cba2ff53e662b326713": "Pimlico Entry Point Simulations",
   "0x000000000091a1f34f51ce866bed8983db51a97e": "Pimlico Bundle Bulker",
   "0x0000000000dd00d61091435b84d1371a1000de9a": "Pimlico Per UserOp Inflator",
