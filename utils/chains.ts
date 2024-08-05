@@ -118,6 +118,15 @@ import {
   wanchainTestnet,
   zilliqa,
   zilliqaTestnet,
+  morphSepolia,
+  lyra,
+  seiTestnet,
+  zkLinkNova,
+  zkLinkNovaSepoliaTestnet,
+  bobaSepolia,
+  forma,
+  shapeSepolia,
+  abstractTestnet,
 } from 'viem/chains';
 
 const ETHEREUM = mainnet.id;
@@ -232,6 +241,15 @@ const WANCHAIN = wanchain.id;
 const WANCHAIN_TESTNET = wanchainTestnet.id;
 const ZILLIQA = zilliqa.id;
 const ZILLIQA_TESTNET = zilliqaTestnet.id;
+const MORPH_SEPOLIA = morphSepolia.id;
+const LYRA = lyra.id;
+const SEI_TESTNET = seiTestnet.id;
+const ZK_LINK_NOVA = zkLinkNova.id;
+const ZK_LINK_NOVA_SEPOLIA = zkLinkNovaSepoliaTestnet.id;
+const BOBA_SEPOLIA = bobaSepolia.id;
+const FORMA = forma.id;
+const SHAPE_SEPOLIA = shapeSepolia.id;
+const ABSTRACT_TESTNET = abstractTestnet.id;
 
 type Chain =
   | typeof ETHEREUM
@@ -345,7 +363,16 @@ type Chain =
   | typeof WANCHAIN
   | typeof WANCHAIN_TESTNET
   | typeof ZILLIQA
-  | typeof ZILLIQA_TESTNET;
+  | typeof ZILLIQA_TESTNET
+  | typeof MORPH_SEPOLIA
+  | typeof LYRA
+  | typeof SEI_TESTNET
+  | typeof ZK_LINK_NOVA
+  | typeof ZK_LINK_NOVA_SEPOLIA
+  | typeof BOBA_SEPOLIA
+  | typeof FORMA
+  | typeof SHAPE_SEPOLIA
+  | typeof ABSTRACT_TESTNET;
 
 const CHAINS: Chain[] = [
   ETHEREUM,
@@ -460,6 +487,15 @@ const CHAINS: Chain[] = [
   WANCHAIN_TESTNET,
   ZILLIQA,
   ZILLIQA_TESTNET,
+  MORPH_SEPOLIA,
+  LYRA,
+  SEI_TESTNET,
+  ZK_LINK_NOVA,
+  ZK_LINK_NOVA_SEPOLIA,
+  BOBA_SEPOLIA,
+  FORMA,
+  SHAPE_SEPOLIA,
+  ABSTRACT_TESTNET,
 ];
 
 function getChainEndpointUrl(chain: Chain): string | null {
@@ -698,6 +734,24 @@ function getChainData(chain: Chain): ChainData {
       return zilliqa;
     case ZILLIQA_TESTNET:
       return zilliqaTestnet;
+    case MORPH_SEPOLIA:
+      return morphSepolia;
+    case LYRA:
+      return lyra;
+    case SEI_TESTNET:
+      return seiTestnet;
+    case ZK_LINK_NOVA:
+      return zkLinkNova;
+    case ZK_LINK_NOVA_SEPOLIA:
+      return zkLinkNovaSepoliaTestnet;
+    case BOBA_SEPOLIA:
+      return bobaSepolia;
+    case FORMA:
+      return forma;
+    case SHAPE_SEPOLIA:
+      return shapeSepolia;
+    case ABSTRACT_TESTNET:
+      return abstractTestnet;
   }
 }
 
