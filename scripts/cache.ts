@@ -7,8 +7,11 @@ import { type Chain, CHAINS, getCode as getChainCode } from '@/utils/chains';
 async function run(): Promise<void> {
   const newCache: Record<Address, Partial<Record<Chain, string>>> = {};
   for (const addressString in addresses) {
+    const index = Object.keys(addresses).indexOf(addressString);
+    if (index % 10) {
+      console.log(`${index}/${Object.keys(addresses)}`);
+    }
     const address = addressString as Address;
-    console.log(address);
     newCache[address] = {};
     for (const chain of CHAINS) {
       const addressCache = (
