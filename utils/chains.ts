@@ -28,8 +28,8 @@ import {
   gnosisChiado,
   scroll,
   scrollSepolia,
-  zkSync,
-  zkSyncSepoliaTestnet,
+  zksync,
+  zksyncSepoliaTestnet,
   celo,
   celoAlfajores,
   linea,
@@ -151,8 +151,8 @@ const GNOSIS = gnosis.id;
 const GNOSIS_CHIADO = gnosisChiado.id;
 const SCROLL = scroll.id;
 const SCROLL_SEPOLIA = scrollSepolia.id;
-const ZKSYNC_ERA = zkSync.id;
-const ZKSYNC_ERA_SEPOLIA = zkSyncSepoliaTestnet.id;
+const ZKSYNC_ERA = zksync.id;
+const ZKSYNC_ERA_SEPOLIA = zksyncSepoliaTestnet.id;
 const CELO = celo.id;
 const CELO_ALFAJORES = celoAlfajores.id;
 const LINEA = linea.id;
@@ -555,9 +555,9 @@ function getChainData(chain: Chain): ChainData {
     case SCROLL_SEPOLIA:
       return scrollSepolia;
     case ZKSYNC_ERA:
-      return zkSync;
+      return zksync;
     case ZKSYNC_ERA_SEPOLIA:
-      return zkSyncSepoliaTestnet;
+      return zksyncSepoliaTestnet;
     case CELO:
       return celo;
     case CELO_ALFAJORES:
