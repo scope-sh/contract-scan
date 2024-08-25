@@ -118,7 +118,7 @@ import {
   wanchainTestnet,
   zilliqa,
   zilliqaTestnet,
-  morphSepolia,
+  morphHolesky,
   lyra,
   seiTestnet,
   zkLinkNova,
@@ -241,7 +241,7 @@ const WANCHAIN = wanchain.id;
 const WANCHAIN_TESTNET = wanchainTestnet.id;
 const ZILLIQA = zilliqa.id;
 const ZILLIQA_TESTNET = zilliqaTestnet.id;
-const MORPH_SEPOLIA = morphSepolia.id;
+const MORPH_HOLESKY = morphHolesky.id;
 const LYRA = lyra.id;
 const SEI_TESTNET = seiTestnet.id;
 const ZK_LINK_NOVA = zkLinkNova.id;
@@ -364,7 +364,7 @@ type Chain =
   | typeof WANCHAIN_TESTNET
   | typeof ZILLIQA
   | typeof ZILLIQA_TESTNET
-  | typeof MORPH_SEPOLIA
+  | typeof MORPH_HOLESKY
   | typeof LYRA
   | typeof SEI_TESTNET
   | typeof ZK_LINK_NOVA
@@ -487,7 +487,7 @@ const CHAINS: Chain[] = [
   WANCHAIN_TESTNET,
   ZILLIQA,
   ZILLIQA_TESTNET,
-  MORPH_SEPOLIA,
+  MORPH_HOLESKY,
   LYRA,
   SEI_TESTNET,
   ZK_LINK_NOVA,
@@ -734,8 +734,8 @@ function getChainData(chain: Chain): ChainData {
       return zilliqa;
     case ZILLIQA_TESTNET:
       return zilliqaTestnet;
-    case MORPH_SEPOLIA:
-      return morphSepolia;
+    case MORPH_HOLESKY:
+      return morphHolesky;
     case LYRA:
       return lyra;
     case SEI_TESTNET:
