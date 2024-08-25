@@ -1,0 +1,22 @@
+name: Cache
+
+on:
+  schedule:
+    - cron: '45 18 * * 4'
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Clean install
+        run: bun install
+
+      - name: Run the script
+        run: bun run cache
