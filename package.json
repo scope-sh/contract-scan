@@ -32,13 +32,13 @@
   "dependencies": {
     "@fontsource-variable/inconsolata": "^5.0.19",
     "@fontsource-variable/inter": "^5.0.20",
-    "@types/react": "18.3.3",
-    "@vercel/node": "3.2.8",
+    "@types/react": "^18.3.5",
+    "@vercel/node": "^3.2.12",
     "@vercel/og": "^0.6.2",
-    "@vueuse/core": "11.0.0",
-    "nuxt": "3.12.4",
+    "@vueuse/core": "^11.0.3",
+    "nuxt": "^3.13.1",
     "react": "^18.3.1",
-    "viem": "2.20.0",
+    "viem": "^2.21.3",
     "vue": "3.4.38",
     "vue-router": "^4.4.3"
   },
