@@ -33,7 +33,6 @@ import {
   celo,
   celoAlfajores,
   linea,
-  lineaGoerli,
   lineaSepolia,
   blast,
   blastSepolia,
@@ -156,7 +155,6 @@ const ZKSYNC_ERA_SEPOLIA = zksyncSepoliaTestnet.id;
 const CELO = celo.id;
 const CELO_ALFAJORES = celoAlfajores.id;
 const LINEA = linea.id;
-const LINEA_GOERLI = lineaGoerli.id;
 const LINEA_SEPOLIA = lineaSepolia.id;
 const BLAST = blast.id;
 const BLAST_SEPOLIA = blastSepolia.id;
@@ -279,7 +277,6 @@ type Chain =
   | typeof CELO
   | typeof CELO_ALFAJORES
   | typeof LINEA
-  | typeof LINEA_GOERLI
   | typeof LINEA_SEPOLIA
   | typeof BLAST
   | typeof BLAST_SEPOLIA
@@ -402,7 +399,6 @@ const CHAINS: Chain[] = [
   CELO,
   CELO_ALFAJORES,
   LINEA,
-  LINEA_GOERLI,
   LINEA_SEPOLIA,
   BLAST,
   BLAST_SEPOLIA,
@@ -564,8 +560,6 @@ function getChainData(chain: Chain): ChainData {
       return celoAlfajores;
     case LINEA:
       return linea;
-    case LINEA_GOERLI:
-      return lineaGoerli;
     case LINEA_SEPOLIA:
       return lineaSepolia;
     case BLAST:
