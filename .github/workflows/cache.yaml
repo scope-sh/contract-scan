@@ -18,5 +18,8 @@ jobs:
       - name: Clean install
         run: bun install
 
+      - name: Build
+        run: bun run build
+
       - name: Run the script
         run: bun run cache
