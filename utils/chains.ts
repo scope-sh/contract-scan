@@ -775,7 +775,7 @@ async function getCode(
     transport: http(endpointUrl),
   });
   try {
-    const code = await chainClient.getBytecode({
+    const code = await chainClient.getCode({
       address,
     });
     return code || null;
