@@ -6,6 +6,7 @@
   "0xca11bde05977b3631167028862be2a173976ca11": "Multicall3",
   "0xba5ed099633d3b313e4d5f7bdc1305d3c28ba5ed": "CreateX",
   "0x914d7fec6aac8cd542e72bca78b30650d45643d7": "Safe Singleton Factory",
+  "0xaecdbb0a3b1c6d1fe1755866e330d82ec81fd4fd": "Safe Singleton Factory (ZKsync)",
   "0xc22834581ebc8527d974f8a1c97e1bea4ef910bc": "Safe Factory 1.3.0",
   "0x4e1dcf7ad4e460cfd30791ccc4f9c8a4f820ec67": "Safe Factory 1.4.1",
   "0xf7488ffbe67327ac9f37d5f722d83fc900852fbf": "Safe WebAuthn Signer Factory",
