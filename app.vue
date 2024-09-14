@@ -1,5 +1,13 @@
 <template>
   <div class="app">
+    <header>
+      <a
+        href="https://github.com/scope-sh/contract-scan"
+        target="_blank"
+      >
+        <IconGitHub class="icon" />
+      </a>
+    </header>
     <NuxtPage />
     <footer />
   </div>
@@ -8,6 +16,8 @@
 <script setup lang="ts">
 import '@fontsource-variable/inter';
 import '@fontsource-variable/inconsolata';
+
+import IconGitHub from '@/components/__common/icon/GitHub.vue';
 </script>
 
 <style>
@@ -49,6 +59,19 @@ body {
   background: var(--color-background-primary);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
+}
+
+header {
+  min-height: 32px;
+  display: flex;
+  padding: 8px 24px;
+  justify-content: end;
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-text-primary);
+  }
 }
 
 footer {
