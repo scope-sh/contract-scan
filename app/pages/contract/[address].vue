@@ -25,6 +25,7 @@
 </template>
 
 <script setup lang="ts">
+import { useHead } from '@unhead/vue';
 import { keccak256, type Address, type Hex } from 'viem';
 import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';

@@ -5,6 +5,10 @@ export default defineNuxtConfig({
     autoImport: false,
   },
 
+  future: {
+    compatibilityVersion: 4,
+  },
+
   devServer: {
     port: 5173,
   },

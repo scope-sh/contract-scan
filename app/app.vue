@@ -62,10 +62,10 @@ body {
 }
 
 header {
-  min-height: 32px;
   display: flex;
-  padding: 8px 24px;
   justify-content: end;
+  min-height: 32px;
+  padding: 8px 24px;
 
   .icon {
     width: 24px;
