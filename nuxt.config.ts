@@ -13,6 +13,8 @@ export default defineNuxtConfig({
     port: 5173,
   },
 
+  telemetry: false,
+
   app: {
     head: {
       charset: 'utf-8',
