@@ -18,14 +18,20 @@ async function run(): Promise<void> {
         cache as Record<Address, Partial<Record<Chain, Hex>>>
       )[address];
       if (addressCache && addressCache[chain]) {
-        newCache[address as Address][chain] = addressCache[chain];
+        const newChainCache = newCache[address as Address];
+        if (newChainCache) {
+          newChainCache[chain] = addressCache[chain];
+        }
         continue;
       }
       const code = await getChainCode(chain, address);
       if (!code) {
         continue;
       }
-      newCache[address as Address][chain] = keccak256(code);
+      const newChainCache = newCache[address as Address];
+      if (newChainCache) {
+        newChainCache[chain] = keccak256(code);
+      }
     }
   }
   console.log(JSON.stringify(newCache, null, 2));

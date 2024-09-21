@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
 import type { Address } from 'viem';
+import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 import AddressList from '@/components/bundle/AddressList.vue';

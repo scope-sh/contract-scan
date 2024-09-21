@@ -27,6 +27,8 @@ export default function handler(request: VercelRequest): Response {
     if (!address || !isAddress(address)) {
       return new ImageResponse(
         (
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           <div
             style={{
               display: 'flex',
@@ -75,6 +77,8 @@ export default function handler(request: VercelRequest): Response {
 
     return new ImageResponse(
       (
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         <div
           style={{
             display: 'flex',
