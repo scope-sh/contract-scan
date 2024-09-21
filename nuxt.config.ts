@@ -1,6 +1,14 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  imports: {
+    autoImport: false,
+  },
+
+  devServer: {
+    port: 5173,
+  },
+
   app: {
     head: {
       charset: 'utf-8',
@@ -50,6 +58,6 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxt/eslint"],
-  compatibilityDate: '2024-09-14'
+  modules: ['@nuxt/eslint'],
+  compatibilityDate: '2024-09-14',
 });
