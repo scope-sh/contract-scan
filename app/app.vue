@@ -4,10 +4,12 @@
       <a
         href="https://github.com/scope-sh/contract-scan"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <IconGitHub class="icon" />
       </a>
     </header>
+    <!-- eslint-disable-next-line vue/no-undef-components -->
     <NuxtPage />
     <footer />
   </div>
@@ -20,6 +22,7 @@ import '@fontsource-variable/inconsolata';
 import IconGitHub from '@/components/__common/icon/GitHub.vue';
 </script>
 
+<!-- eslint-disable-next-line vue/enforce-style-attribute -->
 <style>
 :root {
   --color-text-primary: #ededed;

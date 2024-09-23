@@ -1,5 +1,5 @@
 <template>
-  <router-link :to>
+  <RouterLink :to>
     <div class="card">
       <div class="title">{{ title }}</div>
       <div class="details">
@@ -11,11 +11,12 @@
         </div>
       </div>
     </div>
-  </router-link>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { RouterLink } from 'vue-router';
 
 const { address } = defineProps<Contract>();
 

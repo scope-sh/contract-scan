@@ -2,9 +2,9 @@
   <div class="page">
     <div class="content">
       <div class="header">
-        <router-link to="/">
+        <RouterLink to="/">
           <div class="link">← Go Back</div>
-        </router-link>
+        </RouterLink>
         <div class="header-details">
           <div class="subtitle">Bundle</div>
           <div class="title">
@@ -22,7 +22,7 @@
 <script setup lang="ts">
 import type { Address } from 'viem';
 import { computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { RouterLink, useRoute } from 'vue-router';
 
 import AddressList from '@/components/bundle/AddressList.vue';
 

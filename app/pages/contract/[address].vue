@@ -2,9 +2,9 @@
   <div class="page">
     <div class="content">
       <div class="header">
-        <router-link to="/">
+        <RouterLink to="/">
           <div class="link">← Go Back</div>
-        </router-link>
+        </RouterLink>
         <div class="header-details">
           <div class="subtitle">{{ label }}</div>
           <div class="title">
@@ -28,7 +28,7 @@
 import { useHead } from '@unhead/vue';
 import { keccak256, type Address, type Hex } from 'viem';
 import { computed, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { RouterLink, useRoute } from 'vue-router';
 
 import BlockInfo from '@/components/contract/BlockInfo.vue';
 import type { Status } from '@/components/contract/BlockStatus.vue';

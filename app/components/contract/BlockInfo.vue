@@ -1,10 +1,10 @@
 <template>
   <div class="block">
-    <BlockStatus :status="'success'">exact bytecode match</BlockStatus>
-    <BlockStatus :status="'warning'">different bytecode</BlockStatus>
-    <BlockStatus :status="'error'">failed to get code</BlockStatus>
-    <BlockStatus :status="'empty'">not deployed (no code)</BlockStatus>
-    <BlockStatus :status="'progress'">querying</BlockStatus>
+    <BlockStatus status="success">exact bytecode match</BlockStatus>
+    <BlockStatus status="warning">different bytecode</BlockStatus>
+    <BlockStatus status="error">failed to get code</BlockStatus>
+    <BlockStatus status="empty">not deployed (no code)</BlockStatus>
+    <BlockStatus status="progress">querying</BlockStatus>
   </div>
 </template>
 

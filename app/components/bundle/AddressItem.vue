@@ -1,12 +1,13 @@
 <template>
   <div class="item-details">
-    <router-link :to> {{ label }} </router-link>
+    <RouterLink :to> {{ label }} </RouterLink>
   </div>
 </template>
 
 <script setup lang="ts">
 import type { Address } from 'viem';
 import { computed } from 'vue';
+import { RouterLink } from 'vue-router';
 
 import labels from '@/data/labels.json';
 
