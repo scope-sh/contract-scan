@@ -10,11 +10,11 @@ import { computed } from 'vue';
 
 import labels from '@/data/labels.json';
 
-const props = defineProps<{
+const { address } = defineProps<{
   address: Address;
 }>();
 
-const to = computed(() => `/contract/${props.address}`);
+const to = computed(() => `/contract/${address}`);
 
 const labelsFlattened = computed(() => {
   // Flatten the A -> B -> C -> D map into a C -> D map
@@ -36,9 +36,7 @@ const labelsFlattened = computed(() => {
   }
   return result;
 });
-const label = computed(
-  () => labelsFlattened.value[props.address] || props.address,
-);
+const label = computed(() => labelsFlattened.value[address] || address);
 </script>
 
 <style scoped>

@@ -21,7 +21,7 @@ import { onMounted } from 'vue';
 import IconCheck from '@/components/__common/icon/Check.vue';
 import IconCopy from '@/components/__common/icon/Copy.vue';
 
-const props = defineProps<{
+const { value } = defineProps<{
   value: string;
 }>();
 
@@ -32,7 +32,7 @@ onMounted(() => {
 const { ready, start, stop } = useTimeout(2000, { controls: true });
 
 function copy(): void {
-  navigator.clipboard.writeText(props.value);
+  navigator.clipboard.writeText(value);
   start();
 }
 </script>

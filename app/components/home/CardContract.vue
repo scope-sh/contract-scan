@@ -17,10 +17,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-const props = defineProps<Contract>();
+const { address } = defineProps<Contract>();
 
 const to = computed(() => {
-  return `/contract/${props.address}`;
+  return `/contract/${address}`;
 });
 </script>
 

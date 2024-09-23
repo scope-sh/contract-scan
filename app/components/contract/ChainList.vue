@@ -5,7 +5,7 @@
       :key="chain.id"
       :chain="chain.id"
       :status="chain.status"
-      :address="props.address"
+      :address="address"
     />
   </div>
 </template>
@@ -19,7 +19,7 @@ import ChainItem from './ChainItem.vue';
 
 import type { Chain } from '@/utils/chains';
 
-const props = defineProps<{
+const { chains } = defineProps<{
   address: Address;
   chains: {
     id: Chain;
@@ -43,7 +43,7 @@ const sortedChains = computed(() => {
     }
   }
 
-  const sortedChains = [...props.chains];
+  const sortedChains = [...chains];
   return sortedChains.sort((a, b) => {
     return statusToPriority(a.status) - statusToPriority(b.status);
   });

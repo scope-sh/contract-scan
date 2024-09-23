@@ -29,15 +29,13 @@ import {
   getAddressExplorerUrl,
 } from '@/utils/chains';
 
-const props = defineProps<{
+const { address, chain } = defineProps<{
   address: Address;
   chain: Chain;
   status: Status;
 }>();
 
-const explorerUrl = computed(() =>
-  getAddressExplorerUrl(props.chain, props.address),
-);
+const explorerUrl = computed(() => getAddressExplorerUrl(chain, address));
 </script>
 
 <style scoped>
