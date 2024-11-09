@@ -125,7 +125,16 @@ import {
   bobaSepolia,
   forma,
   shapeSepolia,
+  shape,
   abstractTestnet,
+  worldchain,
+  worldchainSepolia,
+  odysseyTestnet,
+  unichainSepolia,
+  kakarotStarknetSepolia,
+  inkSepolia,
+  apeChain,
+  dymension,
 } from 'viem/chains';
 
 const ETHEREUM = mainnet.id;
@@ -247,7 +256,16 @@ const ZK_LINK_NOVA_SEPOLIA = zkLinkNovaSepoliaTestnet.id;
 const BOBA_SEPOLIA = bobaSepolia.id;
 const FORMA = forma.id;
 const SHAPE_SEPOLIA = shapeSepolia.id;
+const SHAPE = shape.id;
 const ABSTRACT_TESTNET = abstractTestnet.id;
+const WORLDCHAIN = worldchain.id;
+const WORLDCHAIN_SEPOLIA = worldchainSepolia.id;
+const ODYSSEY_TESTNET = odysseyTestnet.id;
+const UNICHAIN_SEPOLIA = unichainSepolia.id;
+const KAKAROT_STARKNET_SEPOLIA = kakarotStarknetSepolia.id;
+const INK_SEPOLIA = inkSepolia.id;
+const APE_CHAIN = apeChain.id;
+const DYMENSION = dymension.id;
 
 type Chain =
   | typeof ETHEREUM
@@ -369,7 +387,16 @@ type Chain =
   | typeof BOBA_SEPOLIA
   | typeof FORMA
   | typeof SHAPE_SEPOLIA
-  | typeof ABSTRACT_TESTNET;
+  | typeof SHAPE
+  | typeof ABSTRACT_TESTNET
+  | typeof WORLDCHAIN
+  | typeof WORLDCHAIN_SEPOLIA
+  | typeof ODYSSEY_TESTNET
+  | typeof UNICHAIN_SEPOLIA
+  | typeof KAKAROT_STARKNET_SEPOLIA
+  | typeof INK_SEPOLIA
+  | typeof APE_CHAIN
+  | typeof DYMENSION;
 
 const CHAINS: Chain[] = [
   ETHEREUM,
@@ -491,7 +518,16 @@ const CHAINS: Chain[] = [
   BOBA_SEPOLIA,
   FORMA,
   SHAPE_SEPOLIA,
+  SHAPE,
   ABSTRACT_TESTNET,
+  WORLDCHAIN,
+  WORLDCHAIN_SEPOLIA,
+  ODYSSEY_TESTNET,
+  UNICHAIN_SEPOLIA,
+  KAKAROT_STARKNET_SEPOLIA,
+  INK_SEPOLIA,
+  APE_CHAIN,
+  DYMENSION,
 ];
 
 function getChainEndpointUrl(chain: Chain): string | null {
@@ -744,8 +780,26 @@ function getChainData(chain: Chain): ChainData {
       return forma;
     case SHAPE_SEPOLIA:
       return shapeSepolia;
+    case SHAPE:
+      return shape;
     case ABSTRACT_TESTNET:
       return abstractTestnet;
+    case WORLDCHAIN:
+      return worldchain;
+    case WORLDCHAIN_SEPOLIA:
+      return worldchainSepolia;
+    case ODYSSEY_TESTNET:
+      return odysseyTestnet;
+    case UNICHAIN_SEPOLIA:
+      return unichainSepolia;
+    case KAKAROT_STARKNET_SEPOLIA:
+      return kakarotStarknetSepolia;
+    case INK_SEPOLIA:
+      return inkSepolia;
+    case APE_CHAIN:
+      return apeChain;
+    case DYMENSION:
+      return dymension;
   }
 }
 
