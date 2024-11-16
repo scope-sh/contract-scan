@@ -6,6 +6,7 @@
       :chain="chain.id"
       :status="chain.status"
       :address="address"
+      :verification="chain.verification"
     />
   </div>
 </template>
@@ -18,12 +19,14 @@ import type { Status } from './BlockStatus.vue';
 import ChainItem from './ChainItem.vue';
 
 import type { Chain } from '@/utils/chains';
+import type { VerificationStatus } from '@/utils/verification';
 
 const { chains } = defineProps<{
   address: Address;
   chains: {
     id: Chain;
     status: Status;
+    verification: VerificationStatus | null;
   }[];
 }>();
 

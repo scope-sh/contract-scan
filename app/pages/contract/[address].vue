@@ -15,6 +15,20 @@
       </div>
       <div class="details">
         <BlockInfo />
+        <div class="verification">
+          <ScanButton
+            :disabled="checkingVerification"
+            @click="checkVerification"
+          >
+            Check verification status
+          </ScanButton>
+          <div
+            v-if="checkingVerification"
+            class="verification-status"
+          >
+            Checking {{ checkedVerifications }} / {{ CHAINS.length }}
+          </div>
+        </div>
         <ChainList
           :address
           :chains
@@ -30,6 +44,7 @@ import { keccak256, type Address, type Hex } from 'viem';
 import { computed, ref, watch } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 
+import ScanButton from '@/components/__common/ScanButton.vue';
 import BlockInfo from '@/components/contract/BlockInfo.vue';
 import type { Status } from '@/components/contract/BlockStatus.vue';
 import ButtonCopy from '@/components/contract/ButtonCopy.vue';
@@ -37,6 +52,8 @@ import ChainList from '@/components/contract/ChainList.vue';
 import addresses from '@/data/addresses.json';
 import cache from '@/data/cache.json';
 import { type Chain, CHAINS, getCode as getChainCode } from '@/utils/chains';
+import type { VerificationStatus } from '@/utils/verification';
+import { checkContractVerification } from '@/utils/verification';
 
 const route = useRoute();
 
@@ -62,18 +79,29 @@ useHead({
   ],
 });
 
-const chains = ref(getInitialChainStatus());
-
-watch(
-  address,
-  () => {
-    chains.value = getInitialChainStatus();
-    fetchCode();
-  },
-  {
-    immediate: true,
-  },
+const checkingVerification = ref(false);
+const verificationStatus = ref<Record<number, VerificationStatus | null>>({});
+const checkedVerifications = computed(
+  () => Object.keys(verificationStatus.value).length,
 );
+async function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+async function checkVerification(): Promise<void> {
+  verificationStatus.value = {};
+  checkingVerification.value = true;
+  for (const chain of CHAINS) {
+    const codeHash = codeHashes.value[chain];
+    const status = codeHash
+      ? await checkContractVerification(address.value, chain)
+      : null;
+    if (status !== null) {
+      await sleep(500);
+    }
+    verificationStatus.value[chain] = status;
+  }
+  checkingVerification.value = false;
+}
 
 async function getCodeHash(chain: Chain): Promise<Hex | null | undefined> {
   const cachedCodeHash =
@@ -90,30 +118,44 @@ async function getCodeHash(chain: Chain): Promise<Hex | null | undefined> {
   return code;
 }
 
+const codeHashes = ref<Partial<Record<Chain, Hex | null | undefined>>>({});
+function getCodeStatus(
+  referenceCodeHash: Hex | undefined,
+  codeHash: Hex | null | undefined,
+): Status {
+  return codeHash
+    ? referenceCodeHash === codeHash
+      ? 'success'
+      : 'warning'
+    : codeHash === null
+      ? 'empty'
+      : 'error';
+}
+const chains = computed(() => {
+  // Use the first non-null code hash as reference
+  const referenceCodeHash = Object.values(codeHashes.value).find(
+    (codeHash) => codeHash !== null && codeHash !== undefined,
+  );
+  return CHAINS.map((chain) => ({
+    id: chain,
+    status:
+      chain in codeHashes.value
+        ? getCodeStatus(referenceCodeHash, codeHashes.value[chain])
+        : 'progress',
+    verification: verificationStatus.value[chain] || null,
+  }));
+});
+watch(
+  address,
+  () => {
+    fetchCode();
+  },
+  {
+    immediate: true,
+  },
+);
 async function fetchCode(): Promise<void> {
-  function processCodeHash(
-    chain: Chain,
-    codeHash: Hex | null | undefined,
-  ): void {
-    if (!referenceCodeHash && codeHash) {
-      referenceCodeHash = codeHash;
-    }
-    const status = codeHash
-      ? referenceCodeHash === codeHash
-        ? 'success'
-        : 'warning'
-      : codeHash === null
-        ? 'empty'
-        : 'error';
-    const chainIndex = chains.value.findIndex(
-      (chainStatus) => chainStatus.id === chain,
-    );
-    const chainValue = chains.value[chainIndex];
-    if (chainValue) {
-      chainValue.status = status;
-    }
-  }
-  let referenceCodeHash: Hex | null = null;
+  codeHashes.value = {};
   // Get cached code first
   const cachedCodeHashes = (
     cache as Record<Address, Partial<Record<Chain, Hex>>>
@@ -121,7 +163,7 @@ async function fetchCode(): Promise<void> {
   for (const chainKey in cachedCodeHashes) {
     const chain = parseInt(chainKey) as Chain;
     const codeHash = cachedCodeHashes[chain];
-    processCodeHash(chain, codeHash);
+    codeHashes.value[chain] = codeHash;
   }
   // Split chains into batches to query contract code in parallel
   const batchSize = 10;
@@ -136,20 +178,10 @@ async function fetchCode(): Promise<void> {
     await Promise.all(
       batch.map(async (chain) => {
         const codeHash = await getCodeHash(chain);
-        processCodeHash(chain, codeHash);
+        codeHashes.value[chain] = codeHash;
       }),
     );
   }
-}
-
-function getInitialChainStatus(): {
-  id: Chain;
-  status: Status;
-}[] {
-  return CHAINS.map((chain) => ({
-    id: chain,
-    status: 'progress',
-  }));
 }
 </script>
 
@@ -234,5 +266,16 @@ h1 {
   display: flex;
   gap: 30px;
   flex-direction: column;
+}
+
+.verification {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.verification-status {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
 }
 </style>
