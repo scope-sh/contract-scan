@@ -19,8 +19,8 @@
   },
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
+    "build": "nuxt build --dotenv .env.local",
+    "dev": "nuxt dev --dotenv .env.local",
     "generate": "nuxt generate",
     "cache": "bun scripts/cache.ts",
     "lint": "bun run lint:prettier && bun run lint:eslint && bun run lint:stylelint",
