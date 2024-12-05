@@ -67,8 +67,6 @@ import {
   palmTestnet,
   boba,
   astarZkEVM,
-  klaytn,
-  klaytnBaobab,
   harmonyOne,
   cronos,
   lukso,
@@ -193,8 +191,6 @@ const IMMUTABLE_ZKEVM = immutableZkEvm.id;
 const IMMUTABLE_ZKEVM_TESTNET = immutableZkEvmTestnet.id;
 const BOBA_ETHEREUM = boba.id;
 const ASTAR_ZKEVM = astarZkEVM.id;
-const KLAYTN = klaytn.id;
-const KLAYTN_BAOBAB = klaytnBaobab.id;
 const AURORA = aurora.id;
 const AURORA_TESTNET = auroraTestnet.id;
 const DEGEN = degen.id;
@@ -324,8 +320,6 @@ type Chain =
   | typeof IMMUTABLE_ZKEVM_TESTNET
   | typeof BOBA_ETHEREUM
   | typeof ASTAR_ZKEVM
-  | typeof KLAYTN
-  | typeof KLAYTN_BAOBAB
   | typeof AURORA
   | typeof AURORA_TESTNET
   | typeof DEGEN
@@ -455,8 +449,6 @@ const CHAINS: Chain[] = [
   IMMUTABLE_ZKEVM_TESTNET,
   BOBA_ETHEREUM,
   ASTAR_ZKEVM,
-  KLAYTN,
-  KLAYTN_BAOBAB,
   AURORA,
   AURORA_TESTNET,
   DEGEN,
@@ -654,10 +646,6 @@ function getChainData(chain: Chain): ChainData {
       return boba;
     case ASTAR_ZKEVM:
       return astarZkEVM;
-    case KLAYTN:
-      return klaytn;
-    case KLAYTN_BAOBAB:
-      return klaytnBaobab;
     case AURORA:
       return aurora;
     case AURORA_TESTNET:
