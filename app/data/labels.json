@@ -57,7 +57,10 @@
       "0x29fcb43b46531bca003ddc8fcb67ffe91900c762": "SafeL2",
       "0x4e1dcf7ad4e460cfd30791ccc4f9c8a4f820ec67": "SafeProxyFactory",
       "0xd53cd0ab83d845ac265be939c57f53ad838012c9": "SignMessageLib",
-      "0x3d4ba2e0884aa488718476ca2fb8efc291a46199": "SimulateTxAccessor"
+      "0x3d4ba2e0884aa488718476ca2fb8efc291a46199": "SimulateTxAccessor",
+      "0x526643F69b81B008F46d95CD5ced5eC0edFFDaC6": "SafeMigration (Target: v1.4.1)",
+      "0xfF83F6335d8930cBad1c0D439A841f01888D9f69": "SafeToL2Migration",
+      "0xBD89A1CE4DDe368FFAB0eC35506eEcE0b1fFdc54": "SafeToL2Setup"
     }
   }
 }
