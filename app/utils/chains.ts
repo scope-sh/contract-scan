@@ -126,6 +126,7 @@ import {
   worldchainSepolia,
   odysseyTestnet,
   unichainSepolia,
+  unichain,
   inkSepolia,
   apeChain,
   dymension,
@@ -251,6 +252,7 @@ const WORLDCHAIN = worldchain.id;
 const WORLDCHAIN_SEPOLIA = worldchainSepolia.id;
 const ODYSSEY_TESTNET = odysseyTestnet.id;
 const UNICHAIN_SEPOLIA = unichainSepolia.id;
+const UNICHAIN = unichain.id;
 const INK_SEPOLIA = inkSepolia.id;
 const APE_CHAIN = apeChain.id;
 const DYMENSION = dymension.id;
@@ -376,6 +378,7 @@ type Chain =
   | typeof WORLDCHAIN_SEPOLIA
   | typeof ODYSSEY_TESTNET
   | typeof UNICHAIN_SEPOLIA
+  | typeof UNICHAIN
   | typeof INK_SEPOLIA
   | typeof APE_CHAIN
   | typeof DYMENSION;
@@ -501,6 +504,7 @@ const CHAINS: Chain[] = [
   WORLDCHAIN_SEPOLIA,
   ODYSSEY_TESTNET,
   UNICHAIN_SEPOLIA,
+  UNICHAIN,
   INK_SEPOLIA,
   APE_CHAIN,
   DYMENSION,
@@ -758,6 +762,8 @@ function getChainData(chain: Chain): ChainData {
       return odysseyTestnet;
     case UNICHAIN_SEPOLIA:
       return unichainSepolia;
+    case UNICHAIN:
+      return unichain;
     case INK_SEPOLIA:
       return inkSepolia;
     case APE_CHAIN:
