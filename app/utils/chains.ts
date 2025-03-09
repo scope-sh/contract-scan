@@ -102,7 +102,6 @@ import {
   xai,
   xaiTestnet,
   rollux,
-  rolluxTestnet,
   sapphire,
   sapphireTestnet,
   syscoin,
@@ -229,7 +228,6 @@ const SEI_DEVNET = seiDevnet.id;
 const XAI = xai.id;
 const XAI_TESTNET = xaiTestnet.id;
 const ROLLUX = rollux.id;
-const ROLLUX_TESTNET = rolluxTestnet.id;
 const SAPPHIRE = sapphire.id;
 const SAPPHIRE_TESTNET = sapphireTestnet.id;
 const SYSCOIN = syscoin.id;
@@ -356,7 +354,6 @@ type Chain =
   | typeof XAI
   | typeof XAI_TESTNET
   | typeof ROLLUX
-  | typeof ROLLUX_TESTNET
   | typeof SAPPHIRE
   | typeof SAPPHIRE_TESTNET
   | typeof SYSCOIN
@@ -483,7 +480,6 @@ const CHAINS: Chain[] = [
   XAI,
   XAI_TESTNET,
   ROLLUX,
-  ROLLUX_TESTNET,
   SAPPHIRE,
   SAPPHIRE_TESTNET,
   SYSCOIN,
@@ -718,8 +714,6 @@ function getChainData(chain: Chain): ChainData {
       return xaiTestnet;
     case ROLLUX:
       return rollux;
-    case ROLLUX_TESTNET:
-      return rolluxTestnet;
     case SAPPHIRE:
       return sapphire;
     case SAPPHIRE_TESTNET:
