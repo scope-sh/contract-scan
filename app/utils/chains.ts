@@ -128,6 +128,7 @@ import {
   unichainSepolia,
   unichain,
   inkSepolia,
+  ink,
   apeChain,
   dymension,
 } from 'viem/chains';
@@ -254,6 +255,7 @@ const ODYSSEY_TESTNET = odysseyTestnet.id;
 const UNICHAIN_SEPOLIA = unichainSepolia.id;
 const UNICHAIN = unichain.id;
 const INK_SEPOLIA = inkSepolia.id;
+const INK = ink.id;
 const APE_CHAIN = apeChain.id;
 const DYMENSION = dymension.id;
 
@@ -380,6 +382,7 @@ type Chain =
   | typeof UNICHAIN_SEPOLIA
   | typeof UNICHAIN
   | typeof INK_SEPOLIA
+  | typeof INK
   | typeof APE_CHAIN
   | typeof DYMENSION;
 
@@ -506,6 +509,7 @@ const CHAINS: Chain[] = [
   UNICHAIN_SEPOLIA,
   UNICHAIN,
   INK_SEPOLIA,
+  INK,
   APE_CHAIN,
   DYMENSION,
 ];
@@ -766,6 +770,8 @@ function getChainData(chain: Chain): ChainData {
       return unichain;
     case INK_SEPOLIA:
       return inkSepolia;
+    case INK:
+      return ink;
     case APE_CHAIN:
       return apeChain;
     case DYMENSION:
