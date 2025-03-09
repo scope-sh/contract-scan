@@ -93,8 +93,6 @@ import {
   metis,
   neonMainnet,
   neonDevnet,
-  pgn,
-  pgnTestnet,
   cyber,
   cyberTestnet,
   redstone,
@@ -222,8 +220,6 @@ const METER_TESTNET = meterTestnet.id;
 const METIS = metis.id;
 const NEON = neonMainnet.id;
 const NEON_DEVNET = neonDevnet.id;
-const PGN = pgn.id;
-const PGN_TESTNET = pgnTestnet.id;
 const CYBER = cyber.id;
 const CYBER_TESTNET = cyberTestnet.id;
 const REDSTONE = redstone.id;
@@ -351,8 +347,6 @@ type Chain =
   | typeof METIS
   | typeof NEON
   | typeof NEON_DEVNET
-  | typeof PGN
-  | typeof PGN_TESTNET
   | typeof CYBER
   | typeof CYBER_TESTNET
   | typeof REDSTONE
@@ -480,8 +474,6 @@ const CHAINS: Chain[] = [
   METIS,
   NEON,
   NEON_DEVNET,
-  PGN,
-  PGN_TESTNET,
   CYBER,
   CYBER_TESTNET,
   REDSTONE,
@@ -708,10 +700,6 @@ function getChainData(chain: Chain): ChainData {
       return neonMainnet;
     case NEON_DEVNET:
       return neonDevnet;
-    case PGN:
-      return pgn;
-    case PGN_TESTNET:
-      return pgnTestnet;
     case CYBER:
       return cyber;
     case CYBER_TESTNET:
