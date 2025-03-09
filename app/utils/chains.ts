@@ -101,7 +101,6 @@ import {
   seiDevnet,
   xai,
   xaiTestnet,
-  kakarotSepolia,
   rollux,
   rolluxTestnet,
   sapphire,
@@ -127,7 +126,6 @@ import {
   worldchainSepolia,
   odysseyTestnet,
   unichainSepolia,
-  kakarotStarknetSepolia,
   inkSepolia,
   apeChain,
   dymension,
@@ -228,7 +226,6 @@ const SEI = sei.id;
 const SEI_DEVNET = seiDevnet.id;
 const XAI = xai.id;
 const XAI_TESTNET = xaiTestnet.id;
-const KAKAROT_SEPOLIA = kakarotSepolia.id;
 const ROLLUX = rollux.id;
 const ROLLUX_TESTNET = rolluxTestnet.id;
 const SAPPHIRE = sapphire.id;
@@ -254,7 +251,6 @@ const WORLDCHAIN = worldchain.id;
 const WORLDCHAIN_SEPOLIA = worldchainSepolia.id;
 const ODYSSEY_TESTNET = odysseyTestnet.id;
 const UNICHAIN_SEPOLIA = unichainSepolia.id;
-const KAKAROT_STARKNET_SEPOLIA = kakarotStarknetSepolia.id;
 const INK_SEPOLIA = inkSepolia.id;
 const APE_CHAIN = apeChain.id;
 const DYMENSION = dymension.id;
@@ -355,7 +351,6 @@ type Chain =
   | typeof SEI_DEVNET
   | typeof XAI
   | typeof XAI_TESTNET
-  | typeof KAKAROT_SEPOLIA
   | typeof ROLLUX
   | typeof ROLLUX_TESTNET
   | typeof SAPPHIRE
@@ -381,7 +376,6 @@ type Chain =
   | typeof WORLDCHAIN_SEPOLIA
   | typeof ODYSSEY_TESTNET
   | typeof UNICHAIN_SEPOLIA
-  | typeof KAKAROT_STARKNET_SEPOLIA
   | typeof INK_SEPOLIA
   | typeof APE_CHAIN
   | typeof DYMENSION;
@@ -482,7 +476,6 @@ const CHAINS: Chain[] = [
   SEI_DEVNET,
   XAI,
   XAI_TESTNET,
-  KAKAROT_SEPOLIA,
   ROLLUX,
   ROLLUX_TESTNET,
   SAPPHIRE,
@@ -508,7 +501,6 @@ const CHAINS: Chain[] = [
   WORLDCHAIN_SEPOLIA,
   ODYSSEY_TESTNET,
   UNICHAIN_SEPOLIA,
-  KAKAROT_STARKNET_SEPOLIA,
   INK_SEPOLIA,
   APE_CHAIN,
   DYMENSION,
@@ -716,8 +708,6 @@ function getChainData(chain: Chain): ChainData {
       return xai;
     case XAI_TESTNET:
       return xaiTestnet;
-    case KAKAROT_SEPOLIA:
-      return kakarotSepolia;
     case ROLLUX:
       return rollux;
     case ROLLUX_TESTNET:
@@ -768,8 +758,6 @@ function getChainData(chain: Chain): ChainData {
       return odysseyTestnet;
     case UNICHAIN_SEPOLIA:
       return unichainSepolia;
-    case KAKAROT_STARKNET_SEPOLIA:
-      return kakarotStarknetSepolia;
     case INK_SEPOLIA:
       return inkSepolia;
     case APE_CHAIN:
