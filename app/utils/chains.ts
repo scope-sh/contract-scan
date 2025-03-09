@@ -115,7 +115,6 @@ import {
   lyra,
   seiTestnet,
   zkLinkNova,
-  zkLinkNovaSepoliaTestnet,
   bobaSepolia,
   forma,
   shapeSepolia,
@@ -241,7 +240,6 @@ const MORPH_HOLESKY = morphHolesky.id;
 const LYRA = lyra.id;
 const SEI_TESTNET = seiTestnet.id;
 const ZK_LINK_NOVA = zkLinkNova.id;
-const ZK_LINK_NOVA_SEPOLIA = zkLinkNovaSepoliaTestnet.id;
 const BOBA_SEPOLIA = bobaSepolia.id;
 const FORMA = forma.id;
 const SHAPE_SEPOLIA = shapeSepolia.id;
@@ -367,7 +365,6 @@ type Chain =
   | typeof LYRA
   | typeof SEI_TESTNET
   | typeof ZK_LINK_NOVA
-  | typeof ZK_LINK_NOVA_SEPOLIA
   | typeof BOBA_SEPOLIA
   | typeof FORMA
   | typeof SHAPE_SEPOLIA
@@ -493,7 +490,6 @@ const CHAINS: Chain[] = [
   LYRA,
   SEI_TESTNET,
   ZK_LINK_NOVA,
-  ZK_LINK_NOVA_SEPOLIA,
   BOBA_SEPOLIA,
   FORMA,
   SHAPE_SEPOLIA,
@@ -740,8 +736,6 @@ function getChainData(chain: Chain): ChainData {
       return seiTestnet;
     case ZK_LINK_NOVA:
       return zkLinkNova;
-    case ZK_LINK_NOVA_SEPOLIA:
-      return zkLinkNovaSepoliaTestnet;
     case BOBA_SEPOLIA:
       return bobaSepolia;
     case FORMA:
