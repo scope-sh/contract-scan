@@ -30,7 +30,7 @@ export type { Status };
 }
 
 .warning {
-  color: #c8b866;
+  color: #b7fbca;
 }
 
 .empty {
