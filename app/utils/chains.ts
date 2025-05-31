@@ -44,7 +44,6 @@ import {
   bscTestnet,
   fantom,
   fantomTestnet,
-  fantomSonicTestnet,
   moonbaseAlpha,
   moonbeam,
   moonriver,
@@ -66,13 +65,10 @@ import {
   palm,
   palmTestnet,
   boba,
-  astarZkEVM,
   harmonyOne,
   cronos,
   lukso,
   luksoTestnet,
-  telos,
-  telosTestnet,
   kroma,
   kromaSepolia,
   dfk,
@@ -170,7 +166,6 @@ const BSC = bsc.id;
 const BSC_TESTNET = bscTestnet.id;
 const FANTOM = fantom.id;
 const FANTOM_TESTNET = fantomTestnet.id;
-const FANTOM_SONIC = fantomSonicTestnet.id;
 const MOONBASE_ALPHA = moonbaseAlpha.id;
 const MOONBEAM = moonbeam.id;
 const MOONRIVER = moonriver.id;
@@ -187,7 +182,6 @@ const PALM_TESTNET = palmTestnet.id;
 const IMMUTABLE_ZKEVM = immutableZkEvm.id;
 const IMMUTABLE_ZKEVM_TESTNET = immutableZkEvmTestnet.id;
 const BOBA_ETHEREUM = boba.id;
-const ASTAR_ZKEVM = astarZkEVM.id;
 const AURORA = aurora.id;
 const AURORA_TESTNET = auroraTestnet.id;
 const DEGEN = degen.id;
@@ -197,8 +191,6 @@ const OP_BNB = opBNB.id;
 const OP_BNB_TESTNET = opBNBTestnet.id;
 const LUKSO = lukso.id;
 const LUKSO_TESTNET = luksoTestnet.id;
-const TELOS = telos.id;
-const TELOS_TESTNET = telosTestnet.id;
 const KROMA = kroma.id;
 const KROMA_SEPOLIA = kromaSepolia.id;
 const DFK_CHAIN = dfk.id;
@@ -296,7 +288,6 @@ type Chain =
   | typeof BSC_TESTNET
   | typeof FANTOM
   | typeof FANTOM_TESTNET
-  | typeof FANTOM_SONIC
   | typeof MOONBASE_ALPHA
   | typeof MOONBEAM
   | typeof MOONRIVER
@@ -313,7 +304,6 @@ type Chain =
   | typeof IMMUTABLE_ZKEVM
   | typeof IMMUTABLE_ZKEVM_TESTNET
   | typeof BOBA_ETHEREUM
-  | typeof ASTAR_ZKEVM
   | typeof AURORA
   | typeof AURORA_TESTNET
   | typeof DEGEN
@@ -323,8 +313,6 @@ type Chain =
   | typeof OP_BNB_TESTNET
   | typeof LUKSO
   | typeof LUKSO_TESTNET
-  | typeof TELOS
-  | typeof TELOS_TESTNET
   | typeof KROMA
   | typeof KROMA_SEPOLIA
   | typeof DFK_CHAIN
@@ -422,7 +410,6 @@ const CHAINS: Chain[] = [
   BSC_TESTNET,
   FANTOM,
   FANTOM_TESTNET,
-  FANTOM_SONIC,
   MOONBASE_ALPHA,
   MOONBEAM,
   MOONRIVER,
@@ -439,7 +426,6 @@ const CHAINS: Chain[] = [
   IMMUTABLE_ZKEVM,
   IMMUTABLE_ZKEVM_TESTNET,
   BOBA_ETHEREUM,
-  ASTAR_ZKEVM,
   AURORA,
   AURORA_TESTNET,
   DEGEN,
@@ -449,8 +435,6 @@ const CHAINS: Chain[] = [
   OP_BNB_TESTNET,
   LUKSO,
   LUKSO_TESTNET,
-  TELOS,
-  TELOS_TESTNET,
   KROMA,
   KROMA_SEPOLIA,
   DFK_CHAIN,
@@ -598,8 +582,6 @@ function getChainData(chain: Chain): ChainData {
       return fantom;
     case FANTOM_TESTNET:
       return fantomTestnet;
-    case FANTOM_SONIC:
-      return fantomSonicTestnet;
     case MOONBASE_ALPHA:
       return moonbaseAlpha;
     case MOONBEAM:
@@ -632,8 +614,6 @@ function getChainData(chain: Chain): ChainData {
       return immutableZkEvmTestnet;
     case BOBA_ETHEREUM:
       return boba;
-    case ASTAR_ZKEVM:
-      return astarZkEVM;
     case AURORA:
       return aurora;
     case AURORA_TESTNET:
@@ -652,10 +632,6 @@ function getChainData(chain: Chain): ChainData {
       return lukso;
     case LUKSO_TESTNET:
       return luksoTestnet;
-    case TELOS:
-      return telos;
-    case TELOS_TESTNET:
-      return telosTestnet;
     case KROMA:
       return kroma;
     case KROMA_SEPOLIA:
