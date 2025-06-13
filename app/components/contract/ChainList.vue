@@ -7,6 +7,8 @@
       :status="chain.status"
       :address="address"
       :verification="chain.verification"
+      :verifiedChains="verifiedChains"
+      @verificationUpdate="update(chain.id, $event)"
     />
   </div>
 </template>
@@ -21,13 +23,18 @@ import ChainItem from './ChainItem.vue';
 import type { Chain } from '@/utils/chains';
 import type { VerificationStatus } from '@/utils/verification';
 
-const { chains } = defineProps<{
+const emit = defineEmits<{
+  (e: 'updateVerification', chain: Chain, status: VerificationStatus): void;
+}>();
+
+const { chains, verifiedChains } = defineProps<{
   address: Address;
   chains: {
     id: Chain;
     status: Status;
     verification: VerificationStatus | null;
   }[];
+  verifiedChains: Chain[];
 }>();
 
 const sortedChains = computed(() => {
@@ -51,6 +58,10 @@ const sortedChains = computed(() => {
     return statusToPriority(a.status) - statusToPriority(b.status);
   });
 });
+
+function update(chain: Chain, status: VerificationStatus): void {
+  emit('updateVerification', chain, status);
+}
 </script>
 
 <style scoped>

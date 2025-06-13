@@ -32,6 +32,8 @@
         <ChainList
           :address
           :chains
+          :verifiedChains="verifiedChains"
+          @updateVerification="updateVerification"
         />
       </div>
     </div>
@@ -84,6 +86,9 @@ const verificationStatus = ref<Record<number, VerificationStatus | null>>({});
 const checkedVerifications = computed(
   () => Object.keys(verificationStatus.value).length,
 );
+const verifiedChains = computed(() =>
+  CHAINS.filter((chain) => verificationStatus.value[chain] === 'verified'),
+);
 async function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -101,6 +106,10 @@ async function checkVerification(): Promise<void> {
     verificationStatus.value[chain] = status;
   }
   checkingVerification.value = false;
+}
+
+function updateVerification(chain: Chain, status: VerificationStatus): void {
+  verificationStatus.value[chain] = status;
 }
 
 async function getCodeHash(chain: Chain): Promise<Hex | null | undefined> {
