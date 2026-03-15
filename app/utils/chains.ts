@@ -65,6 +65,8 @@ import {
   luksoTestnet,
   lyra,
   mainnet,
+  megaeth,
+  megaethTestnet,
   manta,
   mantaSepoliaTestnet,
   mantle,
@@ -234,6 +236,8 @@ const CITREA = citrea.id;
 const CITREA_TESTNET = citreaTestnet.id;
 const HYPEREVM = hyperEvm.id;
 const HYPEREVM_TESTNET = hyperliquidEvmTestnet.id;
+const MEGAETH = megaeth.id;
+const MEGAETH_TESTNET = megaethTestnet.id;
 
 type Chain =
   | typeof ETHEREUM
@@ -348,7 +352,9 @@ type Chain =
   | typeof CITREA
   | typeof CITREA_TESTNET
   | typeof HYPEREVM
-  | typeof HYPEREVM_TESTNET;
+  | typeof HYPEREVM_TESTNET
+  | typeof MEGAETH
+  | typeof MEGAETH_TESTNET;
 
 const CHAINS: Chain[] = [
   ETHEREUM,
@@ -464,6 +470,8 @@ const CHAINS: Chain[] = [
   CITREA_TESTNET,
   HYPEREVM,
   HYPEREVM_TESTNET,
+  MEGAETH,
+  MEGAETH_TESTNET,
 ];
 
 function getChainEndpointUrl(chain: Chain): string | null {
@@ -704,6 +712,10 @@ function getChainData(chain: Chain): ChainData {
       return hyperEvm;
     case HYPEREVM_TESTNET:
       return hyperliquidEvmTestnet;
+    case MEGAETH:
+      return megaeth;
+    case MEGAETH_TESTNET:
+      return megaethTestnet;
   }
 }
 
