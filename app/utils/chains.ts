@@ -86,6 +86,7 @@ import {
   polygonAmoy,
   polygonZkEvm,
   polygonZkEvmCardona,
+  robinhood,
   rollux,
   sapphire,
   sapphireTestnet,
@@ -228,6 +229,7 @@ const HYPEREVM = hyperEvm.id;
 const HYPEREVM_TESTNET = hyperliquidEvmTestnet.id;
 const MEGAETH = megaeth.id;
 const MEGAETH_TESTNET = megaethTestnet.id;
+const ROBINHOOD = robinhood.id;
 
 type Chain =
   | typeof ETHEREUM
@@ -339,7 +341,8 @@ type Chain =
   | typeof HYPEREVM
   | typeof HYPEREVM_TESTNET
   | typeof MEGAETH
-  | typeof MEGAETH_TESTNET;
+  | typeof MEGAETH_TESTNET
+  | typeof ROBINHOOD;
 
 const CHAINS: Chain[] = [
   ETHEREUM,
@@ -452,6 +455,7 @@ const CHAINS: Chain[] = [
   HYPEREVM_TESTNET,
   MEGAETH,
   MEGAETH_TESTNET,
+  ROBINHOOD,
 ];
 
 function getChainEndpointUrl(chain: Chain): string | null {
@@ -686,6 +690,8 @@ function getChainData(chain: Chain): ChainData {
       return megaeth;
     case MEGAETH_TESTNET:
       return megaethTestnet;
+    case ROBINHOOD:
+      return robinhood;
   }
 }
 
