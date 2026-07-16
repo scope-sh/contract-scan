@@ -31,12 +31,10 @@ import {
   citreaTestnet,
   cronos,
   cyber,
-  cyberTestnet,
   degen,
   dfk,
   dymension,
   fantom,
-  fantomTestnet,
   flare,
   flareTestnet,
   forma,
@@ -77,7 +75,6 @@ import {
   monad,
   monadTestnet,
   moonbaseAlpha,
-  neonDevnet,
   neonMainnet,
   opBNB,
   opBNBTestnet,
@@ -89,7 +86,6 @@ import {
   polygonAmoy,
   polygonZkEvm,
   polygonZkEvmCardona,
-  redstone,
   rollux,
   sapphire,
   sapphireTestnet,
@@ -105,7 +101,6 @@ import {
   sonicTestnet,
   syscoin,
   taiko,
-  taraxa,
   unichain,
   unichainSepolia,
   wanchain,
@@ -160,7 +155,6 @@ const MONAD_TESTNET = monadTestnet.id;
 const BSC = bsc.id;
 const BSC_TESTNET = bscTestnet.id;
 const FANTOM = fantom.id;
-const FANTOM_TESTNET = fantomTestnet.id;
 const MOONBASE_ALPHA = moonbaseAlpha.id;
 const FLARE = flare.id;
 const FLARE_TESTNET = flareTestnet.id;
@@ -196,10 +190,7 @@ const IOTEX = iotex.id;
 const IOTEX_TESTNET = iotexTestnet.id;
 const METER = meter.id;
 const NEON = neonMainnet.id;
-const NEON_DEVNET = neonDevnet.id;
 const CYBER = cyber.id;
-const CYBER_TESTNET = cyberTestnet.id;
-const REDSTONE = redstone.id;
 const SEI = sei.id;
 const XAI = xai.id;
 const XAI_TESTNET = xaiTestnet.id;
@@ -207,7 +198,6 @@ const ROLLUX = rollux.id;
 const SAPPHIRE = sapphire.id;
 const SAPPHIRE_TESTNET = sapphireTestnet.id;
 const SYSCOIN = syscoin.id;
-const TARAXA = taraxa.id;
 const WANCHAIN = wanchain.id;
 const ZILLIQA = zilliqa.id;
 const LYRA = lyra.id;
@@ -277,7 +267,6 @@ type Chain =
   | typeof BSC
   | typeof BSC_TESTNET
   | typeof FANTOM
-  | typeof FANTOM_TESTNET
   | typeof MOONBASE_ALPHA
   | typeof FLARE
   | typeof FLARE_TESTNET
@@ -313,10 +302,7 @@ type Chain =
   | typeof IOTEX_TESTNET
   | typeof METER
   | typeof NEON
-  | typeof NEON_DEVNET
   | typeof CYBER
-  | typeof CYBER_TESTNET
-  | typeof REDSTONE
   | typeof SEI
   | typeof XAI
   | typeof XAI_TESTNET
@@ -324,7 +310,6 @@ type Chain =
   | typeof SAPPHIRE
   | typeof SAPPHIRE_TESTNET
   | typeof SYSCOIN
-  | typeof TARAXA
   | typeof WANCHAIN
   | typeof ZILLIQA
   | typeof LYRA
@@ -394,7 +379,6 @@ const CHAINS: Chain[] = [
   BSC,
   BSC_TESTNET,
   FANTOM,
-  FANTOM_TESTNET,
   MOONBASE_ALPHA,
   FLARE,
   FLARE_TESTNET,
@@ -430,10 +414,7 @@ const CHAINS: Chain[] = [
   IOTEX_TESTNET,
   METER,
   NEON,
-  NEON_DEVNET,
   CYBER,
-  CYBER_TESTNET,
-  REDSTONE,
   SEI,
   XAI,
   XAI_TESTNET,
@@ -441,7 +422,6 @@ const CHAINS: Chain[] = [
   SAPPHIRE,
   SAPPHIRE_TESTNET,
   SYSCOIN,
-  TARAXA,
   WANCHAIN,
   ZILLIQA,
   LYRA,
@@ -560,8 +540,6 @@ function getChainData(chain: Chain): ChainData {
       return bscTestnet;
     case FANTOM:
       return fantom;
-    case FANTOM_TESTNET:
-      return fantomTestnet;
     case MOONBASE_ALPHA:
       return moonbaseAlpha;
     case FLARE:
@@ -632,14 +610,8 @@ function getChainData(chain: Chain): ChainData {
       return meter;
     case NEON:
       return neonMainnet;
-    case NEON_DEVNET:
-      return neonDevnet;
     case CYBER:
       return cyber;
-    case CYBER_TESTNET:
-      return cyberTestnet;
-    case REDSTONE:
-      return redstone;
     case SEI:
       return sei;
     case XAI:
@@ -654,8 +626,6 @@ function getChainData(chain: Chain): ChainData {
       return sapphireTestnet;
     case SYSCOIN:
       return syscoin;
-    case TARAXA:
-      return taraxa;
     case WANCHAIN:
       return wanchain;
     case ZILLIQA:
