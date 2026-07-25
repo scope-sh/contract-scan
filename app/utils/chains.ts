@@ -458,7 +458,18 @@ const CHAINS: Chain[] = [
   ROBINHOOD,
 ];
 
+// Reliable public RPC endpoints for chains whose viem default is unavailable
+// or aggressively rate-limits browser traffic. Falls back to the viem default.
+const RPC_OVERRIDES: Partial<Record<Chain, string>> = {
+  [ETHEREUM]: 'https://ethereum-rpc.publicnode.com',
+  [POLYGON_AMOY]: 'https://polygon-amoy-bor-rpc.publicnode.com',
+};
+
 function getChainEndpointUrl(chain: Chain): string | null {
+  const override = RPC_OVERRIDES[chain];
+  if (override) {
+    return override;
+  }
   const chainData = getChainData(chain);
   return chainData.rpcUrls.default.http[0] || null;
 }
