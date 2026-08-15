@@ -2,7 +2,7 @@
   <div class="app">
     <header>
       <a
-        href="https://github.com/scope-sh/contract-scan"
+        href="https://github.com/Destiner/contract-scan"
         target="_blank"
         rel="noopener noreferrer"
       >

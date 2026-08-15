@@ -15,7 +15,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/scope-sh/contract-scan.git"
+    "url": "git+https://github.com/Destiner/contract-scan.git"
   },
   "type": "module",
   "scripts": {
