@@ -11,7 +11,16 @@
     </header>
     <!-- eslint-disable-next-line vue/no-undef-components -->
     <NuxtPage />
-    <footer />
+    <footer>
+      <a
+        class="attribution"
+        href="https://destiner.io"
+        target="_blank"
+        rel="noopener"
+      >
+        Made by Destiner
+      </a>
+    </footer>
   </div>
 </template>
 
@@ -81,7 +90,21 @@ header {
 }
 
 footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 32px;
+  padding: 8px 24px;
+
+  .attribution {
+    color: var(--color-text-tertiary);
+    font-size: var(--font-size-tiny);
+    text-decoration: none;
+  }
+
+  .attribution:hover {
+    color: var(--color-text-secondary);
+  }
 }
 
 @media (width >= 768px) {

@@ -29,3 +29,7 @@ Example: [Safe 1.4.1 deployment](https://contractscan.xyz/bundle?name=Safe+1.4.1
 ## Contributing
 
 Feel free to extend the list of supported chains or cached contracts.
+
+---
+
+Made by [Destiner](https://destiner.io).
