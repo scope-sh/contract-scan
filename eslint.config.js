@@ -28,7 +28,6 @@ export default withNuxt(
           },
         },
       ],
-      'import/no-unused-modules': 'error',
       'import/no-mutable-exports': 'error',
       'import/no-extraneous-dependencies': [
         'error',

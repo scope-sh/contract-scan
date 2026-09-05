@@ -39,11 +39,11 @@
 </template>
 
 <script setup lang="ts">
-import { useHead } from '@unhead/vue';
 import { keccak256, type Address, type Hex } from 'viem';
 import { computed, ref, watch } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 
+import { useHead } from '#imports';
 import ScanButton from '@/components/__common/ScanButton.vue';
 import BlockInfo from '@/components/contract/BlockInfo.vue';
 import type { Status } from '@/components/contract/BlockStatus.vue';
